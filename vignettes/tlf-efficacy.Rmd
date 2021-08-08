@@ -16,6 +16,7 @@ library(r2rtf)
 library(dplyr)
 
 # Load project specific functions
+# Need to updated after the project is mature
 devtools::load_all() 
 ```
 

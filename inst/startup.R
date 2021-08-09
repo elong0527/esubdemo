@@ -38,4 +38,4 @@ message("\n")
 message("The project home directory is ", home)
 message("\n")
 
-rm(home, R_version, repos, snapshot, startup)
+rm(home, R_version, repos, snapshot)

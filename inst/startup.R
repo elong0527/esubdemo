@@ -1,5 +1,3 @@
-# Consult BAAMR SME before modifying this start up file
-# BAAMR SME <baamr_sme@merck.com>
 # Project Level Setup 
 
 R_version <- "4.0.1"																                  # set up project R version

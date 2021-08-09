@@ -12,10 +12,10 @@ The demo project is following the concepts discussed in:
 
 By using R package folder structure and tools, we are able to achieve:
 
-- consistency 
-- automation
-- reproducibility 
-- compliance
+- Consistency 
+- Automation
+- Reproducibility 
+- Compliance
 
 Below are minimal sufficient folders and files leverage R package folder structure.  
 

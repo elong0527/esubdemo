@@ -11,15 +11,13 @@ home      <- dirname(rprojroot::find_package_root_file("DESCRIPTION")) # set up 
 path <- list(
  home      = home,                   # Project home
  adam      = "adam",                 # ADaM data
- output    = "output",               # Output
- library   = "library"               # Project package library
+ output    = "output"                # Output
+
 
 )
 
 path <- lapply(path, function(x) file.path(home, x))
 
-.libPaths(c(path$library, .libPaths()))
-            
 # Define repo URL for project specific package installation
 options(repos = repos)
 

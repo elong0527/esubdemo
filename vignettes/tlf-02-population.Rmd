@@ -5,6 +5,7 @@ we need to summarize which patients were included in each efficacy analysis
 in Section 11.1, Data Sets Analysed. 
 
 ```{r}
+devtools::load_all()
 library(haven) # Read SAS data
 library(dplyr) # Manipulate data
 library(tidyr) # Manipulate data

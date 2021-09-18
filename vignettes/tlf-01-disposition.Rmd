@@ -5,6 +5,7 @@ we need to summarize accounting of all patients who entered the study, in Sectio
 The disposition of patients reports the numbers of patients who were randomized, and who entered and completed each phase of the study, as well as the reasons for all post-randomization discontinuations, grouped by treatment and by major reason (lost to follow-up, adverse event, poor compliance etc.). 
 
 ```{r}
+devtools::load_all()
 library(haven) # Read SAS data
 library(dplyr) # Manipulate data
 library(tidyr) # Manipulate data

@@ -15,6 +15,7 @@ There is many R packages that can efficiently summarize baseline information.
 The [`table1`](https://github.com/benjaminrich/table1) R package is one of them. 
 
 ```{r}
+devtools::load_all()
 library(table1)
 library(r2rtf)
 library(haven)

@@ -5,6 +5,7 @@ we need to summarize primary and secondary efficacy endpoints,
 in Section 11.4, Efficacy Results and Tabulations of Individual Patient. 
 
 ```{r}
+devtools::load_all()
 library(haven)   # Read SAS data
 library(dplyr)   # Manipulate data
 library(tidyr)   # Manipulate data
@@ -61,47 +62,6 @@ Below is the first few records of the analysis dataset.
 ana %>%
   select(USUBJID, TRTPN, AVISIT, AVAL, BASE, CHG) %>%  
   head(4)
-```
-## Helper Functions
-
-To prepare report dataframe, we created a few helper functions 
-by using the `fmt_num` function defined in Chapter \@ref(population). 
-
-- Format Estimators
-
-```{r}
-fmt_est <- function(.mean,
-                    .sd,
-                    digits = c(1, 2)) {
-  .mean <- fmt_num(.mean, digits[1], width = digits[1] + 4)
-  .sd <- fmt_num(.sd, digits[2], width = digits[2] + 3)
-  paste0(.mean, " (", .sd, ")")
-}
-```
-
-- Format Confidence Interval
-
-```{r}
-fmt_ci <- function(.est,
-                   .lower,
-                   .upper,
-                   digits = 2,
-                   width = digits + 3) {
-  .est <- fmt_num(.est, digits, width)
-  .lower <- fmt_num(.lower, digits, width)
-  .upper <- fmt_num(.upper, digits, width)
-  paste0(.est, " (", .lower, ",", .upper, ")")
-}
-```
-
-- Format P-Value
-
-```{r}
-fmt_pval <- function(.p, digits = 3) {
-  scale <- 10^(-1 * digits)
-  p_scale <- paste0("<", digits)
-  if_else(.p < scale, p_scale, fmt_num(.p, digits = digits))
-}
 ```
 
 ## Summary of Observed Data

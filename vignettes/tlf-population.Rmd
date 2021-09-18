@@ -1,13 +1,3 @@
----
-title: CDISC Pilot: Efficacy Tables
-output:
-  html_document:
-    df_print: paged
-    toc: yes
-    toc_depth: '2'
-    toc_float: true
----
-
 # Analysis Population {#population}
 
 Following [ICH E3 guidance](https://database.ich.org/sites/default/files/E3_Guideline.pdf),

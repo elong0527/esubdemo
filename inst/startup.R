@@ -3,15 +3,13 @@
 R_version <- "4.0.1"																                  # set up project R version
 snapshot  <- "2021-08-06" 									                          # set up snapshot date
 repos     <- paste0("https://mran.microsoft.com/snapshot/", snapshot)  # set up repository based on snapshot
-home      <- dirname(rprojroot::find_package_root_file("DESCRIPTION")) # set up home directory
+home      <- normalizePath(".")                                        # set up home directory
 
 # A&R folder path (Do not edit information below)
 path <- list(
  home      = home,                   # Project home
  adam      = "adam",                 # ADaM data
  output    = "output"                # Output
-
-
 )
 
 path <- lapply(path, function(x) file.path(home, x))

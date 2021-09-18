@@ -1,3 +1,7 @@
+<!-- badges: start -->
+[![R build status](https://github.com/elong0527/esubdemo/workflows/R-CMD-check/badge.svg)](https://github.com/elong0527/esubdemo/actions)
+<!-- badges: end -->
+  
 ## Overview
 
 `esubdemo` is a demo project to illustrate how to organize analysis scripts 

@@ -1,6 +1,6 @@
 #' Format numeric value 
 #' 
-#' @inheritParams formatC
+#' @inheritParams base::formatC
 #' 
 #' @export
 fmt_num <- function(x, digits, width = digits + 4) {

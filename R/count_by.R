@@ -1,8 +1,17 @@
-count_by <- function(data, # Input data set
-                     grp, # Group variable
-                     var, # Analysis variable
-                     var_label = var, # Analysis variable label
-                     id = "USUBJID") { # Subject ID variable
+#' Count value by variables 
+#' 
+#' @param data A data frame
+#' @param grp Group variable in `data`. 
+#' @param var Analysis variable in `data`. 
+#' @param var_label A string of analysis variable label. 
+#' @param id Subject id variable in `data`. 
+#' 
+#' @export
+count_by <- function(data, 
+                     grp, 
+                     var, 
+                     var_label = var, 
+                     id = "USUBJID") { 
   data <- data %>% rename(grp = !!grp, var = !!var, id = !!id)
   
   left_join(

@@ -12,12 +12,6 @@ library(tidyr) # Manipulate data
 library(r2rtf) # Reporting in RTF format
 ```
 
-In this chapter, we illustrate how to summarize AE information in a study.
-
-```{r, out.width = "100%", out.height = "400px", echo = FALSE, fig.align = "center"}
-knitr::include_graphics("tlf/tlf_ae_summary.pdf")
-```
-
 The data used to summarize AE information is in `adsl` and `adae` datasets. 
 
 ```{r}
@@ -149,10 +143,6 @@ tbl_ae_summary %>%
   rtf_footnote("Every subject is counted a single time for each applicable row and column.") %>%
   rtf_encode() %>%
   write_rtf("tlf/tlf_ae_summary.rtf")
-```
-
-```{r, out.width = "100%", out.height = "400px", echo = FALSE, fig.align = "center"}
-knitr::include_graphics("tlf/tlf_ae_summary.pdf")
 ```
 
 In conclusion, the procedure to generate a AE summary table as shown in the above example is listed as follows:

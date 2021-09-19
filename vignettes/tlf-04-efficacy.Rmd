@@ -15,10 +15,6 @@ library(emmeans) # LS mean estimation
 
 For efficacy analysis, we only analyze change from baseline glucose data at Week 24. 
 
-```{r, out.width = "100%", out.height = "400px", echo = FALSE, fig.align = "center"}
-knitr::include_graphics("tlf/tlf_eff.pdf")
-```
-
 ## Analysis Dataset
 
 To prepare analysis dataset, 
@@ -226,10 +222,6 @@ t1_rtf %>%
   write_rtf("tlf/tlf_eff1.rtf")
 ```
 
-```{r, out.width = "100%", out.height = "400px", echo = FALSE, fig.align = "center"}
-knitr::include_graphics("tlf/tlf_eff1.pdf")
-```
-
 we also use `r2rtf` to prepare the table format for `t2`
 
 ```{r}
@@ -246,10 +238,6 @@ t2_rtf %>%
   write_rtf("tlf/tlf_eff2.rtf")
 ```
 
-```{r, out.width = "100%", out.height = "400px", echo = FALSE, fig.align = "center"}
-knitr::include_graphics("tlf/tlf_eff2.pdf")
-```
-
 Finally we combine the two parts to get the final table using `r2rtf`.
 This is achieved by providing a list of `t1_rtf` and `t2_rtf` as input for
 `rtf_encode`. 
@@ -260,9 +248,6 @@ list(t1_rtf, t2_rtf) %>%
   write_rtf("tlf/tlf_eff.rtf")
 ```
 
-```{r, out.width = "100%", out.height = "400px", echo = FALSE, fig.align = "center"}
-knitr::include_graphics("tlf/tlf_eff.pdf")
-```
 
 In conclusion, the procedure to generate the above efficacy results table is summarized as follows.
 

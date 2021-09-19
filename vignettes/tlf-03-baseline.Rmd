@@ -4,13 +4,6 @@ Following [ICH E3 guidance](https://database.ich.org/sites/default/files/E3_Guid
 we need to summarize critical demographic and baseline characteristics of the patients
 in Section 11.2, Demographic and Other Baseline Characteristics.
 
-In this chapter, we illustrate how to create a simplified 
-baseline characteristics table in a study.
-
-```{r, out.width = "100%", out.height = "400px", echo = FALSE, fig.align = "center"}
-knitr::include_graphics("tlf/tlf_base.pdf")
-```
-
 There is many R packages that can efficiently summarize baseline information.
 The [`table1`](https://github.com/benjaminrich/table1) R package is one of them. 
 
@@ -93,10 +86,6 @@ tbl_base[-1, ] %>%
                text_indent_left = 180) %>% 
       rtf_encode() %>% 
       write_rtf("tlf/tlf_base.rtf")
-```
-
-```{r, out.width = "100%", out.height = "400px", echo = FALSE, fig.align = "center"}
-knitr::include_graphics("tlf/tlf_base.pdf")
 ```
 
 In conclusion, the procedure to generate demographic and baseline characteristics table is summarized as follows.

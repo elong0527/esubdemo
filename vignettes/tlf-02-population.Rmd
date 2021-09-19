@@ -12,13 +12,6 @@ library(tidyr) # Manipulate data
 library(r2rtf) # Reporting in RTF format
 ```
 
-In this chapter, we illustrate how to create a summary table for
-analysis population in a study.
-
-```{r, out.width = "100%", out.height = "400px", echo = FALSE, fig.align = "center"}
-knitr::include_graphics("tlf/tbl_pop.pdf")
-```
-
 The first step is to read relevant datasets into R. 
 For analysis population table, 
 all the required information is saved in the ADSL dataset.
@@ -110,10 +103,6 @@ tbl_pop %>%
   rtf_encode() %>%
   # Save to a file
   write_rtf("tlf/tbl_pop.rtf")
-```
-
-```{r, out.width = "100%", out.height = "400px", echo = FALSE, fig.align = "center"}
-knitr::include_graphics("tlf/tbl_pop.pdf")
 ```
 
 In conclusion, the procedure to generate a population summary table as shown in the above example is listed as follows:

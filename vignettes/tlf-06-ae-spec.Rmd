@@ -14,6 +14,7 @@ library(haven) # Read SAS data
 library(dplyr) # Manipulate data
 library(tidyr) # Manipulate data
 library(r2rtf) # Reporting in RTF format
+library(tools)
 ```
 
 The data used to summarize AE information is in `adsl` and `adae` datasets. 

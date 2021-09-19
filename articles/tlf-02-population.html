@@ -150,18 +150,18 @@
 <code class="sourceCode R"><span class="co"># Derive a randomization flag</span>
 <span class="va">adsl</span> <span class="op">&lt;-</span> <span class="va">adsl</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>RANDFL <span class="op">=</span> <span class="st">"Y"</span><span class="op">)</span>
 
-<span class="va">pop</span> <span class="op">&lt;-</span> <span class="fu">count_by</span><span class="op">(</span><span class="va">adsl</span>, <span class="st">"TRT01PN"</span>, <span class="st">"RANDFL"</span>, 
+<span class="va">pop</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/count_by.html">count_by</a></span><span class="op">(</span><span class="va">adsl</span>, <span class="st">"TRT01PN"</span>, <span class="st">"RANDFL"</span>, 
                 var_label <span class="op">=</span> <span class="st">"Participants in Population"</span><span class="op">)</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">var_label</span>, <span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html">starts_with</a></span><span class="op">(</span><span class="st">"n_"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">pop1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/bind.html">bind_rows</a></span><span class="op">(</span>
-  <span class="fu">count_by</span><span class="op">(</span><span class="va">adsl</span>, <span class="st">"TRT01PN"</span>, <span class="st">"ITTFL"</span>,
+  <span class="fu"><a href="../reference/count_by.html">count_by</a></span><span class="op">(</span><span class="va">adsl</span>, <span class="st">"TRT01PN"</span>, <span class="st">"ITTFL"</span>,
     var_label <span class="op">=</span> <span class="st">"Participants included in ITT population"</span>
   <span class="op">)</span>,
-  <span class="fu">count_by</span><span class="op">(</span><span class="va">adsl</span>, <span class="st">"TRT01PN"</span>, <span class="st">"EFFFL"</span>,
+  <span class="fu"><a href="../reference/count_by.html">count_by</a></span><span class="op">(</span><span class="va">adsl</span>, <span class="st">"TRT01PN"</span>, <span class="st">"EFFFL"</span>,
     var_label <span class="op">=</span> <span class="st">"Participants included in efficacy population"</span>
   <span class="op">)</span>,
-  <span class="fu">count_by</span><span class="op">(</span><span class="va">adsl</span>, <span class="st">"TRT01PN"</span>, <span class="st">"SAFFL"</span>,
+  <span class="fu"><a href="../reference/count_by.html">count_by</a></span><span class="op">(</span><span class="va">adsl</span>, <span class="st">"TRT01PN"</span>, <span class="st">"SAFFL"</span>,
     var_label <span class="op">=</span> <span class="st">"Participants included in safety population"</span>
   <span class="op">)</span>
 <span class="op">)</span> <span class="op">%&gt;%</span>

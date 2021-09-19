@@ -86,7 +86,69 @@
 
       </header><div class="row">
   <div class="contents col-md-9">
-A demo project for analysis and reporting of clinical trials. 
+
+
+<div id="overview" class="section level2">
+<h2 class="hasAnchor">
+<a href="#overview" class="anchor"></a>Overview</h2>
+<p><code>esubdemo</code> is a demo project to illustrate how to organize analysis scripts in an R package folder structure.</p>
+<p>The demo project is following the concepts discussed in:</p>
+<ul>
+<li><a href="https://peerj.com/preprints/3192/">Marwick, B., Boettiger, C., &amp; Mullen, L. (2018). Packaging data analytical work reproducibly using R (and friends). The American Statistician, 72(1), 80-88.</a></li>
+<li><a href="https://www.pharmasug.org/proceedings/2021/AD/PharmaSUG-2021-AD-079.pdf">Wu, P., Palukuru, U. P., Luo, Y., Nepal, S., &amp; Zhang, Y. (2021) Analysis and reporting in regulated clinical trial environment using R. PharmaSUG 2021</a></li>
+</ul>
+</div>
+<div id="folder-structure" class="section level2">
+<h2 class="hasAnchor">
+<a href="#folder-structure" class="anchor"></a>Folder Structure</h2>
+<p>By using R package folder structure and tools, we are able to achieve:</p>
+<ul>
+<li>Consistency</li>
+<li>Automation</li>
+<li>Reproducibility</li>
+<li>Compliance</li>
+</ul>
+<p>Below are minimal sufficient folders and files leverage R package folder structure.</p>
+<ul>
+<li>
+<code>*.Rproj</code>: RStudio project file used to open RStudio project.</li>
+<li>
+<code>DESCRIPTION</code>: Metadata for a package including authors, license, dependency etc.</li>
+<li>
+<code>vignettes/</code>: Analysis scripts using Rmarkdown.</li>
+<li>
+<code>R/</code>: Project specific R functions.</li>
+<li>
+<code>man/</code>: Manual of project specific R functions.</li>
+</ul>
+<p>There are additional folders and files required in this demo for an analysis project</p>
+<blockquote>
+<p>people may use different folder name as it is not a standard R package folder. These folders and files needs to be added in <code>.Rbuildignore</code> to pass R package check</p>
+</blockquote>
+<ul>
+<li>
+<code>vignettes/adam_data</code>: ADaM datasets in <code>.sas7bdat</code> format.
+<ul>
+<li>one may also put it in <code>inst/exdata</code> following <a href="https://r-pkgs.org/data.html">R package convention</a>
+</li>
+<li>in reality, we suggest to have real data saved outside of this project. (e.g. in a database)</li>
+</ul>
+</li>
+<li>
+<code>vignettes/tlf</code>: TLFs output</li>
+<li>
+<code>renv.lock</code> and <code>renv</code>: R package management using <code>renv</code> package. (<a href="https://rstudio.github.io/renv/articles/renv.html">Introduction</a>)</li>
+<li>
+<code>_pkgdown.yml</code>: <a href="https://pkgdown.r-lib.org/articles/pkgdown.html">pkgdown</a> configuration file</li>
+<li>
+<code>.Rprofile</code>: Project startup file to setup running environment including R version, repository, folder path etc.
+<ul>
+<li>We further use <code>inst/startup.R</code> and <code>R/zzz.R</code> to allow the startup file is executed while running. <code><a href="https://devtools.r-lib.org//reference/load_all.html">devtools::load_all()</a></code> and RStudio build panel.</li>
+</ul>
+</li>
+</ul>
+</div>
+
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
@@ -104,7 +166,13 @@ A demo project for analysis and reporting of clinical trials.
 </ul>
 </div>
 
-  </div>
+  <div class="dev-status">
+<h2>Dev status</h2>
+<ul class="list-unstyled">
+<li><a href="https://github.com/elong0527/esubdemo/actions"><img src="https://github.com/elong0527/esubdemo/workflows/R-CMD-check/badge.svg" alt="R build status"></a></li>
+</ul>
+</div>
+</div>
 </div>
 
 

@@ -15,6 +15,7 @@ library(dplyr)   # Manipulate data
 library(tidyr)   # Manipulate data
 library(r2rtf)   # Reporting in RTF format
 library(emmeans) # LS mean estimation
+library(stringr) # String manipulation
 ```
 
 For efficacy analysis, we only analyze change from baseline glucose data at Week 24. 

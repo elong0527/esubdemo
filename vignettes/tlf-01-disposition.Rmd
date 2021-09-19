@@ -1,3 +1,10 @@
+---
+title: Disposition Table
+resource_files:
+   - adam/*.sas7bdat
+   - tlf/*.rtf
+---
+
 # Disposition {#disposition}
 
 Following [ICH E3 guidance](https://database.ich.org/sites/default/files/E3_Guideline.pdf),

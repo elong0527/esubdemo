@@ -1,3 +1,7 @@
+---
+title: Specific AE Table
+---
+
 # Specific AE
 
 Following [ICH E3 guidance](https://database.ich.org/sites/default/files/E3_Guideline.pdf),

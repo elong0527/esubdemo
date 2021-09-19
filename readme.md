@@ -35,10 +35,10 @@ There are additional folders and files required in this demo for an analysis pro
 > These folders and files needs to be added in `.Rbuildignore` to pass
 > R package check 
 
-- `adam`: ADaM datasets in `.sas7bdat` format.
+- `vignettes/adam_data`: ADaM datasets in `.sas7bdat` format.
   + one may also put it in `inst/exdata` following [R package convention](https://r-pkgs.org/data.html)
   + in reality, we suggest to have real data saved outside of this project. (e.g. in a database)
-- `output`: TLFs output 
+- `vignettes/tlf`: TLFs output 
 - `renv.lock` and `renv`: R package management using `renv` package. ([Introduction](https://rstudio.github.io/renv/articles/renv.html)) 
 - `_pkgdown.yml`: [pkgdown](https://pkgdown.r-lib.org/articles/pkgdown.html) configuration file
 - `.Rprofile`: Project startup file to setup running environment including R version, repository, folder path etc. 

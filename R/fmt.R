@@ -49,10 +49,7 @@ fmt_ci <- function(.est,
 #' Format p-Value
 #' 
 #' @param .p a p-value. 
-#' @param .lower lower confidence interval bound of an estimator.
-#' @param .upper upper confidence interval bound of an estimator.
 #' @param digits number of digits for `.est`, `.lower`, and `.upper`.
-#' @param width the total field width. 
 #' 
 #' @export
 fmt_pval <- function(.p, digits = 3) {

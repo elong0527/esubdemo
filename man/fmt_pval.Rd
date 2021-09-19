@@ -10,12 +10,6 @@ fmt_pval(.p, digits = 3)
 \item{.p}{a p-value.}
 
 \item{digits}{number of digits for \code{.est}, \code{.lower}, and \code{.upper}.}
-
-\item{.lower}{lower confidence interval bound of an estimator.}
-
-\item{.upper}{upper confidence interval bound of an estimator.}
-
-\item{width}{the total field width.}
 }
 \description{
 Format p-Value

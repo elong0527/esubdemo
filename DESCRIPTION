@@ -13,7 +13,8 @@ Imports:
     fs,
     haven,
     table1,
-    emmeans
+    emmeans,
+    stringr
 Suggests: 
     devtools,
     testthat,

@@ -10,7 +10,10 @@ Depends: R (>= 3.6.0)
 License: GPL (>= 3)
 Imports: 
     r2rtf,
-    fs
+    fs,
+    haven,
+    table1,
+    emmeans
 Suggests: 
     devtools,
     testthat,
@@ -18,6 +21,7 @@ Suggests:
     rmarkdown,
     covr,
     dplyr,
+    tidyr,
     renv
 Encoding: UTF-8
 LazyData: true

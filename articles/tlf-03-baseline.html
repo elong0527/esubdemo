@@ -104,45 +104,25 @@
 <p>Following <a href="https://database.ich.org/sites/default/files/E3_Guideline.pdf">ICH E3 guidance</a>, we need to summarize critical demographic and baseline characteristics of the patients in Section 11.2, Demographic and Other Baseline Characteristics.</p>
 <p>There is many R packages that can efficiently summarize baseline information. The <a href="https://github.com/benjaminrich/table1"><code>table1</code></a> R package is one of them.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org//reference/load_all.html">load_all</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
-<pre><code>## ℹ Loading esubdemo</code></pre>
-<pre><code>## Current oroject R package repository:</code></pre>
-<pre><code>##     https://mran.microsoft.com/snapshot/2021-08-06</code></pre>
-<pre><code>## </code></pre>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/benjaminrich/table1">table1</a></span><span class="op">)</span></code></pre></div>
-<pre><code>## 
-## Attaching package: 'table1'</code></pre>
-<pre><code>## The following objects are masked from 'package:base':
-## 
-##     units, units&lt;-</code></pre>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://merck.github.io/r2rtf/">r2rtf</a></span><span class="op">)</span>
+<code class="sourceCode R"><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org//reference/load_all.html">load_all</a></span><span class="op">(</span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/benjaminrich/table1">table1</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://merck.github.io/r2rtf/">r2rtf</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://haven.tidyverse.org">haven</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span></code></pre></div>
-<pre><code>## 
-## Attaching package: 'dplyr'</code></pre>
-<pre><code>## The following objects are masked from 'package:stats':
-## 
-##     filter, lag</code></pre>
-<pre><code>## The following objects are masked from 'package:base':
-## 
-##     intersect, setdiff, setequal, union</code></pre>
-<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyr.tidyverse.org">tidyr</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyr.tidyverse.org">tidyr</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://stringr.tidyverse.org">stringr</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">tools</span><span class="op">)</span></code></pre></div>
 <p>As in previous chapters, we first read <code>adsl</code> dataset that contain all required information for baseline characteristics table.</p>
-<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">adsl</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://haven.tidyverse.org/reference/read_sas.html">read_sas</a></span><span class="op">(</span><span class="st">"adam_data/adsl.sas7bdat"</span><span class="op">)</span></code></pre></div>
 <p>For simplicity, we only analyze <code>SEX</code>, <code>AGE</code> and <code>RACE</code> in this example using the <code>table1</code> R package. More details of the <code>table</code> R package can be found in the package <a href="https://benjaminrich.github.io/table1/vignettes/table1-examples.html">vignettes</a>.</p>
 <p>The <code>table1</code> R package directly create an HTML report.</p>
-<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">ana</span> <span class="op">&lt;-</span> <span class="va">adsl</span> <span class="op">%&gt;%</span> 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>SEX <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">SEX</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"F"</span>, <span class="st">"M"</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Female"</span>, <span class="st">"Male"</span><span class="op">)</span><span class="op">)</span>, 
          RACE <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/tools/toTitleCase.html">toTitleCase</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/chartr.html">tolower</a></span><span class="op">(</span><span class="va">RACE</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> 
 
-<span class="va">tbl</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tidyr.tidyverse.org/reference/table1.html">table1</a></span><span class="op">(</span><span class="op">~</span> <span class="va">SEX</span> <span class="op">+</span> <span class="va">AGE</span> <span class="op">+</span> <span class="va">RACE</span> <span class="op">|</span> <span class="va">TRT01P</span>, data <span class="op">=</span> <span class="va">ana</span><span class="op">)</span>
+<span class="va">tbl</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/table1/man/table1.html">table1</a></span><span class="op">(</span><span class="op">~</span> <span class="va">SEX</span> <span class="op">+</span> <span class="va">AGE</span> <span class="op">+</span> <span class="va">RACE</span> <span class="op">|</span> <span class="va">TRT01P</span>, data <span class="op">=</span> <span class="va">ana</span><span class="op">)</span>
 <span class="va">tbl</span></code></pre></div>
 <div class="Rtable1"><table class="table Rtable1">
 <thead><tr>
@@ -226,7 +206,7 @@
 </tbody>
 </table></div>
 <p>The code below transfer the output into a dataframe that only contain ASCII character recommended by regulatory agencies. <code>tbl_base</code> is used as input for <code>r2rtf</code> to create final report.</p>
-<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">tbl_base</span> <span class="op">&lt;-</span> <span class="va">tbl</span> <span class="op">%&gt;%</span> 
               <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span> 
               <span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html">as_tibble</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span>
@@ -253,7 +233,7 @@
 ## 11 "  American Ind… "0 (0%)"    "1 (1.2%)"         "0 (0%)"          "1 (0.4%)"</code></pre>
 <p>We start to define the format of the output. We highlight items that are not discussed in previous discussion.</p>
 <p><code>text_indent_first</code> and <code>test_indent_left</code> are used to control the indent space of text. They are helpful when you need to control the white space of a long sentence. For example, “AMERICAN INDIAN OR ALASKA NATIVE” in the table.</p>
-<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">colheader1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">tbl_base</span><span class="op">)</span>, collapse <span class="op">=</span> <span class="st">"|"</span><span class="op">)</span>
 <span class="va">colheader2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="va">tbl_base</span><span class="op">[</span><span class="fl">1</span>, <span class="op">]</span>, collapse <span class="op">=</span> <span class="st">"|"</span><span class="op">)</span>
 <span class="va">rel_width</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2.5</span>, <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">4</span><span class="op">)</span><span class="op">)</span>

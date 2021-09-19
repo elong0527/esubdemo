@@ -1,8 +1,5 @@
 ---
 title: Disposition Table
-resource_files:
-   - adam/*.sas7bdat
-   - tlf/*.rtf
 ---
 
 # Disposition {#disposition}

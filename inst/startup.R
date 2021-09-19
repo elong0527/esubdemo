@@ -19,8 +19,8 @@ message(" ")
 
 # Display R Session Status
 #message("R packages were installed from repo: ", options('repo'), "\n")
-message("Below R package path are searching in order to find installed R pacakges in this R session:", "\n",
-        paste(paste0("    ", .libPaths()), collapse = "\n"))
-message("\n")
+# message("Below R package path are searching in order to find installed R pacakges in this R session:", "\n",
+#         paste(paste0("    ", .libPaths()), collapse = "\n"))
+# message("\n")
 
 rm(R_version, repos, snapshot)

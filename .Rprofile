@@ -1,2 +1,3 @@
-source("renv/activate.R")
 source("inst/startup.R")
+source("renv/activate.R")
+

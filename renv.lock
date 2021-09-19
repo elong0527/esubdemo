@@ -1,9 +1,9 @@
 {
   "R": {
-    "Version": "4.0.1",
+    "Version": "4.1.1",
     "Repositories": [
       {
-        "Name": null,
+        "Name": "https://mran.microsoft.com/snapshot/2021-08-06",
         "URL": "https://mran.microsoft.com/snapshot/2021-08-06"
       }
     ]

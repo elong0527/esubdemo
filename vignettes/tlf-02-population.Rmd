@@ -8,7 +8,7 @@ Following [ICH E3 guidance](https://database.ich.org/sites/default/files/E3_Guid
 we need to summarize which patients were included in each efficacy analysis 
 in Section 11.1, Data Sets Analysed. 
 
-```{r}
+```{r, message = FALSE}
 devtools::load_all()
 library(haven) # Read SAS data
 library(dplyr) # Manipulate data

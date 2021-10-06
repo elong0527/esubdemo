@@ -11,7 +11,8 @@ The demo project is following the concepts discussed in:
 
 - [Marwick, B., Boettiger, C., & Mullen, L. (2018). Packaging data analytical work reproducibly using R (and friends). The American Statistician, 72(1), 80-88.](https://peerj.com/preprints/3192/)
 - [Wu, P., Palukuru, U. P., Luo, Y., Nepal, S., & Zhang, Y. (2021) Analysis and reporting in regulated clinical trial environment using R. PharmaSUG 2021](https://www.pharmasug.org/proceedings/2021/AD/PharmaSUG-2021-AD-079.pdf)
-
+- [R for Clinical Study Reports and Submission](https://r4csr.org)
+- 
 ## Folder Structure
 
 By using R package folder structure and tools, we are able to achieve:

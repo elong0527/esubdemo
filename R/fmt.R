@@ -54,6 +54,6 @@ fmt_ci <- function(.est,
 #' @export
 fmt_pval <- function(.p, digits = 3) {
   scale <- 10^(-1 * digits)
-  p_scale <- paste0("<", digits)
+  p_scale <- paste0(" <", 10^(-digits))
   ifelse(.p < scale, p_scale, fmt_num(.p, digits = digits))
 }

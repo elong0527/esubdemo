@@ -18,7 +18,7 @@ Imports:
     magrittr
 Suggests: 
     devtools,
-    testthat,
+    testthat (>= 3.0.0),
     knitr,
     rmarkdown,
     covr,
@@ -31,3 +31,4 @@ Roxygen: list(markdown = TRUE)
 Rmarkdwon: echo = TRUE
 RoxygenNote: 7.1.1
 VignetteBuilder: knitr
+Config/testthat/edition: 3

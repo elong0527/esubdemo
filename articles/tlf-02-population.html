@@ -102,13 +102,16 @@
 <a href="#population" class="anchor"></a>Analysis Population</h1>
 <p>Following <a href="https://database.ich.org/sites/default/files/E3_Guideline.pdf">ICH E3 guidance</a>, we need to summarize which patients were included in each efficacy analysis in Section 11.1, Data Sets Analysed.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org//reference/load_all.html">load_all</a></span><span class="op">(</span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://haven.tidyverse.org">haven</a></span><span class="op">)</span> <span class="co"># Read SAS data</span>
+<code class="sourceCode R"><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org//reference/load_all.html">load_all</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<pre><code>## Warning in eval(ei, envir): The current R version is not the same with the
+## current project in 4.1.0</code></pre>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://haven.tidyverse.org">haven</a></span><span class="op">)</span> <span class="co"># Read SAS data</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span> <span class="co"># Manipulate data</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyr.tidyverse.org">tidyr</a></span><span class="op">)</span> <span class="co"># Manipulate data</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://merck.github.io/r2rtf/">r2rtf</a></span><span class="op">)</span> <span class="co"># Reporting in RTF format</span></code></pre></div>
 <p>The first step is to read relevant datasets into R. For analysis population table, all the required information is saved in the ADSL dataset. We can use <code>haven</code> package to read the dataset.</p>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">adsl</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://haven.tidyverse.org/reference/read_sas.html">read_sas</a></span><span class="op">(</span><span class="st">"adam_data/adsl.sas7bdat"</span><span class="op">)</span></code></pre></div>
 <p>We illustrate how to prepare a report data for a simplified analysis population table using variables below:</p>
 <ul>
@@ -117,7 +120,7 @@
 <li>EFFFL: Efficacy population flag</li>
 <li>SAFFL: Safty population flag</li>
 </ul>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">adsl</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">USUBJID</span>, <span class="va">ITTFL</span>, <span class="va">EFFFL</span>, <span class="va">SAFFL</span><span class="op">)</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="fl">4</span><span class="op">)</span></code></pre></div>
@@ -132,14 +135,14 @@
 <h2 class="hasAnchor">
 <a href="#analysis-code" class="anchor"></a>Analysis Code</h2>
 <p>With the helper functions <code>count_by</code>, we can easily prepare report dataset as</p>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Derive a randomization flag</span>
 <span class="va">adsl</span> <span class="op">&lt;-</span> <span class="va">adsl</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>RANDFL <span class="op">=</span> <span class="st">"Y"</span><span class="op">)</span>
 
 <span class="va">pop</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/count_by.html">count_by</a></span><span class="op">(</span><span class="va">adsl</span>, <span class="st">"TRT01PN"</span>, <span class="st">"RANDFL"</span>, 
                 var_label <span class="op">=</span> <span class="st">"Participants in Population"</span><span class="op">)</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">var_label</span>, <span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html">starts_with</a></span><span class="op">(</span><span class="st">"n_"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">pop1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/bind.html">bind_rows</a></span><span class="op">(</span>
   <span class="fu"><a href="../reference/count_by.html">count_by</a></span><span class="op">(</span><span class="va">adsl</span>, <span class="st">"TRT01PN"</span>, <span class="st">"ITTFL"</span>,
     var_label <span class="op">=</span> <span class="st">"Participants included in ITT population"</span>
@@ -154,7 +157,7 @@
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">var</span> <span class="op">==</span> <span class="st">"Y"</span><span class="op">)</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">var_label</span>, <span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html">starts_with</a></span><span class="op">(</span><span class="st">"npct_"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <p>Now we combine individual rows into the whole table for reporting purpose. <code>tbl_pop</code> is used as input for <code>r2rtf</code> to create final report.</p>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">pop</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/grep.html">gsub</a></span><span class="op">(</span><span class="st">"n_"</span>, <span class="st">"npct_"</span>, <span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">pop</span><span class="op">)</span><span class="op">)</span>
 <span class="va">tbl_pop</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/bind.html">bind_rows</a></span><span class="op">(</span><span class="va">pop</span>, <span class="va">pop1</span><span class="op">)</span>
 
@@ -167,7 +170,7 @@
 ## 3 Participants included in efficacy population "  79 ( 91.9)"
 ## 4 Participants included in safety population   "  86 (100.0)"</code></pre>
 <p>We start to define the format of the output.</p>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">rel_width</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">3</span><span class="op">)</span><span class="op">)</span>
 <span class="va">colheader</span> <span class="op">&lt;-</span> <span class="st">" | Placebo | Xanomeline line Low Dose| Xanomeline line High Dose"</span>
 <span class="va">tbl_pop</span> <span class="op">%&gt;%</span>

@@ -102,13 +102,16 @@
 <a href="#disposition" class="anchor"></a>Disposition</h1>
 <p>Following <a href="https://database.ich.org/sites/default/files/E3_Guideline.pdf">ICH E3 guidance</a>, we need to summarize accounting of all patients who entered the study, in Section 10.1, Disposition of Patients. The disposition of patients reports the numbers of patients who were randomized, and who entered and completed each phase of the study, as well as the reasons for all post-randomization discontinuations, grouped by treatment and by major reason (lost to follow-up, adverse event, poor compliance etc.).</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org//reference/load_all.html">load_all</a></span><span class="op">(</span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://haven.tidyverse.org">haven</a></span><span class="op">)</span> <span class="co"># Read SAS data</span>
+<code class="sourceCode R"><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org//reference/load_all.html">load_all</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<pre><code>## Warning in eval(ei, envir): The current R version is not the same with the
+## current project in 4.1.0</code></pre>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://haven.tidyverse.org">haven</a></span><span class="op">)</span> <span class="co"># Read SAS data</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span> <span class="co"># Manipulate data</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyr.tidyverse.org">tidyr</a></span><span class="op">)</span> <span class="co"># Manipulate data</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://merck.github.io/r2rtf/">r2rtf</a></span><span class="op">)</span> <span class="co"># Reporting in RTF format</span></code></pre></div>
 <p>The first step is to read relevant datasets into R. For disposition table, all the required information is saved in the ADSL dataset. We can use <code>haven</code> package to read the dataset.</p>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">adsl</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://haven.tidyverse.org/reference/read_sas.html">read_sas</a></span><span class="op">(</span><span class="st">"adam_data/adsl.sas7bdat"</span><span class="op">)</span></code></pre></div>
 <p>We illustrate how to prepare a report data for a simplified disposition of patients table using variables below:</p>
 <ul>
@@ -118,7 +121,7 @@
 <li>DISCONFL: Discontinued from study flag</li>
 <li>DCREASCD: Discontinued from study reason</li>
 </ul>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">adsl</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">USUBJID</span>, <span class="va">TRT01P</span>, <span class="va">TRT01PN</span>, <span class="va">DISCONFL</span>, <span class="va">DCREASCD</span><span class="op">)</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="fl">4</span><span class="op">)</span></code></pre></div>
@@ -130,7 +133,7 @@
 ## 3 01-701-1028 Xanomeline High Dose      81 ""       Completed       
 ## 4 01-701-1033 Xanomeline Low Dose       54 "Y"      Sponsor Decision</code></pre>
 <p>In the code below, we calculated patients in the analysis population.</p>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">n_rand</span> <span class="op">&lt;-</span> <span class="va">adsl</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">TRT01PN</span><span class="op">)</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarize</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/context.html">n</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span>
@@ -147,7 +150,7 @@
 ## 1    86    84    84 Patients in population</code></pre>
 <p>In the code below, we calculate number and percentage of patients who discontinued the study.</p>
 <p>Here we use <code><a href="https://rdrr.io/r/base/formatc.html">formatC()</a></code> to customize the numeric value to be 1 decimal with fixed width of 5.</p>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">n_disc</span> <span class="op">&lt;-</span> <span class="va">adsl</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">TRT01PN</span><span class="op">)</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarize</a></span><span class="op">(</span>
@@ -168,7 +171,7 @@
 ##   &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;       
 ## 1    28    59    57 " 32.6" " 70.2" " 67.9" Discontinued</code></pre>
 <p>In the code below, we calculate number and percentage of patients who completed/discontinued the study in different reasons.</p>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">n_reason</span> <span class="op">&lt;-</span> <span class="va">adsl</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">TRT01PN</span><span class="op">)</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>n_total <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/context.html">n</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span>
@@ -187,7 +190,7 @@
   <span class="op">)</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/rename.html">rename</a></span><span class="op">(</span>row <span class="op">=</span> <span class="va">DCREASCD</span><span class="op">)</span></code></pre></div>
 <pre><code>## `summarise()` has grouped output by 'TRT01PN'. You can override using the `.groups` argument.</code></pre>
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">n_reason</span></code></pre></div>
 <pre><code>## # A tibble: 10 × 7
 ##    row                  n_0  n_54  n_81 pct_0   pct_54  pct_81 
@@ -203,7 +206,7 @@
 ##  9 Sponsor Decision       2     2     3 "  2.3" "  2.4" "  3.6"
 ## 10 Withdrew Consent       9    10     8 " 10.5" " 11.9" "  9.5"</code></pre>
 <p>In the code below, we calculate number and percentage of patients who complete the study. We split <code>n_reason</code> because we need to customize the row order of the table.</p>
-<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">n_complete</span> <span class="op">&lt;-</span> <span class="va">n_reason</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">row</span> <span class="op">==</span> <span class="st">"Completed"</span><span class="op">)</span>
 
 <span class="va">n_complete</span></code></pre></div>
@@ -212,7 +215,7 @@
 ##   &lt;chr&gt;     &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;  
 ## 1 Completed    58    25    27 " 67.4" " 29.8" " 32.1"</code></pre>
 <p>In the code below, we calculate number and percentage of patients who discontinued the study in different reasons. Here we use <code><a href="https://rdrr.io/r/base/paste.html">paste0("    ", row)</a></code> to add some leading space for individual reasons for study discontinuation.</p>
-<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">n_reason</span> <span class="op">&lt;-</span> <span class="va">n_reason</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">row</span> <span class="op">!=</span> <span class="st">"Completed"</span><span class="op">)</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>row <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="st">"    "</span>, <span class="va">row</span><span class="op">)</span><span class="op">)</span>
@@ -231,7 +234,7 @@
 ## 8 "    Sponsor Decision"       2     2     3 "  2.3" "  2.4" "  3.6"
 ## 9 "    Withdrew Consent"       9    10     8 " 10.5" " 11.9" "  9.5"</code></pre>
 <p>Now we combined individual rows into the whole table for reporting purpose. <code>tbl_disp</code> is used as input for <code>r2rtf</code> to create final report.</p>
-<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">tbl_disp</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/bind.html">bind_rows</a></span><span class="op">(</span><span class="va">n_rand</span>, <span class="va">n_complete</span>, <span class="va">n_disc</span>, <span class="va">n_reason</span><span class="op">)</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">row</span>, <span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html">ends_with</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"_0"</span>, <span class="st">"_54"</span>, <span class="st">"_81"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>
 
@@ -253,7 +256,7 @@
 ## 12 "    Withdrew Consent"       9 " 10.5"    10 " 11.9"     8 "  9.5"</code></pre>
 <p>We start to define the format of the output. We highlighted items that is not discussed in previous discussion.</p>
 <p><code>rtf_title</code> define table title. We can provide a vector for the title argument. Each value is a separate line. The format can also be controlled by providing a vector input in text format.</p>
-<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">tbl_disp</span> <span class="op">%&gt;%</span>
   
   <span class="co"># Table title</span>

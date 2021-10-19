@@ -13,3 +13,6 @@ Meta
 library
 
  
+esubdemo.Rcheck/
+esubdemo*.tar.gz
+esubdemo*.tgz

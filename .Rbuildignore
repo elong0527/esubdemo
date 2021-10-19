@@ -21,3 +21,6 @@
 ^adam$
 ^\.github$
 ^readme.md$
+^esubdemo\.Rcheck$
+^esubdemo.*\.tar\.gz$
+^esubdemo.*\.tgz$

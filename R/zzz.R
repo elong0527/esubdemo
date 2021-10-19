@@ -13,3 +13,5 @@
   
   invisible(startup)
 }
+
+globalVariables(c("n", "tot", "pct", "npct"))

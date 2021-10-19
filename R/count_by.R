@@ -12,23 +12,24 @@ count_by <- function(data,
                      var, 
                      var_label = var, 
                      id = "USUBJID") { 
-  data <- data %>% rename(grp = !!grp, var = !!var, id = !!id)
+  data <- data %>% 
+    dplyr::rename(grp = !!grp, var = !!var, id = !!id)
   
-  left_join(
-    count(data, grp, var),
-    count(data, grp, name = "tot"),
+  dplyr::left_join(
+    dplyr::count(data, grp, var),
+    dplyr::count(data, grp, name = "tot"),
     by = "grp",
   ) %>%
-    mutate(
+    dplyr::mutate(
       pct = fmt_num(100 * n / tot, digits = 1),
       n = fmt_num(n, digits = 0),
       npct = paste0(n, " (", pct, ")")
     ) %>%
-    pivot_wider(
+    tidyr::pivot_wider(
       id_cols = var,
       names_from = grp,
       values_from = c(n, pct, npct),
       values_fill = list(n = "0", pct = fmt_num(0, digits = 0))
     ) %>%
-    mutate(var_label = var_label)
+    dplyr::mutate(var_label = var_label)
 }

@@ -14,7 +14,8 @@ Imports:
     haven,
     table1,
     emmeans,
-    stringr
+    stringr,
+    magrittr
 Suggests: 
     devtools,
     testthat,

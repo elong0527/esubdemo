@@ -26,8 +26,8 @@ To prepare analysis dataset,
 we need both `adsl` and `adlbc` datasets for this analysis.
 
 ```{r}
-adsl <- read_sas("adam_data/adsl.sas7bdat")
-adlb <- read_sas("adam_data/adlbc.sas7bdat")
+adsl <- read_sas("data-adam/adsl.sas7bdat")
+adlb <- read_sas("data-adam/adlbc.sas7bdat")
 ```
 
 We first define the analysis dataset using 

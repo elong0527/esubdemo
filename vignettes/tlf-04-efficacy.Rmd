@@ -26,8 +26,8 @@ To prepare analysis dataset,
 we need both `adsl` and `adlbc` datasets for this analysis.
 
 ```{r}
-adsl <- read_sas("adam_data/adsl.sas7bdat")
-adlb <- read_sas("adam_data/adlbc.sas7bdat")
+adsl <- read_sas("data-adam/adsl.sas7bdat")
+adlb <- read_sas("data-adam/adlbc.sas7bdat")
 ```
 
 We first define the analysis dataset using 
@@ -202,7 +202,7 @@ t1_rtf <- t1 %>%
   rtf_title(c(
     "ANCOVA of Change from Baseline Glucose (mmol/L) at Week 24",
     "LOCF",
-    "Efficacly Analysis Population"
+    "Efficacy Analysis Population"
   )) %>%
   rtf_colheader("| Baseline | Week 24 | Change from Baseline",
     col_rel_width = c(2.5, 2, 2, 4)

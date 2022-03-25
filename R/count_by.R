@@ -1,20 +1,20 @@
-#' Count value by variables 
-#' 
+#' Count value by variables
+#'
 #' @param data A data frame
-#' @param grp Group variable in `data`. 
-#' @param var Analysis variable in `data`. 
-#' @param var_label A string of analysis variable label. 
-#' @param id Subject id variable in `data`. 
-#' 
+#' @param grp Group variable in `data`.
+#' @param var Analysis variable in `data`.
+#' @param var_label A string of analysis variable label.
+#' @param id Subject id variable in `data`.
+#'
 #' @export
-count_by <- function(data, 
-                     grp, 
-                     var, 
-                     var_label = var, 
-                     id = "USUBJID") { 
-  data <- data %>% 
+count_by <- function(data,
+                     grp,
+                     var,
+                     var_label = var,
+                     id = "USUBJID") {
+  data <- data %>%
     dplyr::rename(grp = !!grp, var = !!var, id = !!id)
-  
+
   dplyr::left_join(
     dplyr::count(data, grp, var),
     dplyr::count(data, grp, name = "tot"),

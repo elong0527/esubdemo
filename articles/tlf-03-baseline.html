@@ -19,6 +19,8 @@
 <![endif]-->
 </head>
 <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-article">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -31,23 +33,17 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">esubdemo</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.0.1</span>
       </span>
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
 <li>
-  <a href="../index.html">
-    <span class="fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
-<li>
   <a href="../reference/index.html">Reference</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Articles
      
     <span class="caret"></span>
@@ -98,34 +94,36 @@
 
     
     
-<div id="baseline-characteristics" class="section level1">
-<h1 class="hasAnchor">
-<a href="#baseline-characteristics" class="anchor"></a>Baseline Characteristics</h1>
-<p>Following <a href="https://database.ich.org/sites/default/files/E3_Guideline.pdf">ICH E3 guidance</a>, we need to summarize critical demographic and baseline characteristics of the patients in Section 11.2, Demographic and Other Baseline Characteristics.</p>
-<p>There is many R packages that can efficiently summarize baseline information. The <a href="https://github.com/benjaminrich/table1"><code>table1</code></a> R package is one of them.</p>
+<div class="section level2">
+<h2 id="baseline-characteristics">Baseline Characteristics<a class="anchor" aria-label="anchor" href="#baseline-characteristics"></a>
+</h2>
+<p>Following the <a href="https://database.ich.org/sites/default/files/E3_Guideline.pdf" class="external-link">ICH E3 guidance</a>, we need to summarize critical demographic and baseline characteristics of the patients in Section 11.2, Demographic and Other Baseline Characteristics.</p>
+<p>There is many R packages that can efficiently summarize baseline information. The <a href="https://github.com/benjaminrich/table1" class="external-link"><code>table1</code></a> R package is one of them.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org//reference/load_all.html">load_all</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
-<pre><code>## Warning in eval(ei, envir): The current R version is not the same with the
-## current project in 4.1.0</code></pre>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">esubdemo</span><span class="op">)</span></code></pre></div>
+<pre><code><span class="co">## Warning in eval(ei, envir): The current R version is not the same with the</span>
+<span class="co">## current project in 4.1.0</span></code></pre>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/benjaminrich/table1">table1</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://merck.github.io/r2rtf/">r2rtf</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://haven.tidyverse.org">haven</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyr.tidyverse.org">tidyr</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://stringr.tidyverse.org">stringr</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">tools</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/benjaminrich/table1" class="external-link">table1</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://merck.github.io/r2rtf/" class="external-link">r2rtf</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://haven.tidyverse.org" class="external-link">haven</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyr.tidyverse.org" class="external-link">tidyr</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="http://stringr.tidyverse.org" class="external-link">stringr</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">tools</span><span class="op">)</span></code></pre></div>
 <p>As in previous chapters, we first read <code>adsl</code> dataset that contain all required information for baseline characteristics table.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">adsl</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://haven.tidyverse.org/reference/read_sas.html">read_sas</a></span><span class="op">(</span><span class="st">"data-adam/adsl.sas7bdat"</span><span class="op">)</span></code></pre></div>
-<p>For simplicity, we only analyze <code>SEX</code>, <code>AGE</code> and <code>RACE</code> in this example using the <code>table1</code> R package. More details of the <code>table</code> R package can be found in the package <a href="https://benjaminrich.github.io/table1/vignettes/table1-examples.html">vignettes</a>.</p>
+<code class="sourceCode R"><span class="va">adsl</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://haven.tidyverse.org/reference/read_sas.html" class="external-link">read_sas</a></span><span class="op">(</span><span class="st">"data-adam/adsl.sas7bdat"</span><span class="op">)</span></code></pre></div>
+<p>For simplicity, we only analyze <code>SEX</code>, <code>AGE</code> and <code>RACE</code> in this example using the <code>table1</code> R package. More details of the <code>table</code> R package can be found in the package <a href="https://benjaminrich.github.io/table1/vignettes/table1-examples.html" class="external-link">vignettes</a>.</p>
 <p>The <code>table1</code> R package directly create an HTML report.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">ana</span> <span class="op">&lt;-</span> <span class="va">adsl</span> <span class="op">%&gt;%</span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>SEX <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">SEX</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"F"</span>, <span class="st">"M"</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Female"</span>, <span class="st">"Male"</span><span class="op">)</span><span class="op">)</span>, 
-         RACE <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/tools/toTitleCase.html">toTitleCase</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/chartr.html">tolower</a></span><span class="op">(</span><span class="va">RACE</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> 
+<code class="sourceCode R"><span class="va">ana</span> <span class="op">&lt;-</span> <span class="va">adsl</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>
+    SEX <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">factor</a></span><span class="op">(</span><span class="va">SEX</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"F"</span>, <span class="st">"M"</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Female"</span>, <span class="st">"Male"</span><span class="op">)</span><span class="op">)</span>,
+    RACE <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/tools/toTitleCase.html" class="external-link">toTitleCase</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/chartr.html" class="external-link">tolower</a></span><span class="op">(</span><span class="va">RACE</span><span class="op">)</span><span class="op">)</span>
+  <span class="op">)</span>
 
-<span class="va">tbl</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/table1/man/table1.html">table1</a></span><span class="op">(</span><span class="op">~</span> <span class="va">SEX</span> <span class="op">+</span> <span class="va">AGE</span> <span class="op">+</span> <span class="va">RACE</span> <span class="op">|</span> <span class="va">TRT01P</span>, data <span class="op">=</span> <span class="va">ana</span><span class="op">)</span>
+<span class="va">tbl</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/table1/man/table1.html" class="external-link">table1</a></span><span class="op">(</span><span class="op">~</span> <span class="va">SEX</span> <span class="op">+</span> <span class="va">AGE</span> <span class="op">+</span> <span class="va">RACE</span> <span class="op">|</span> <span class="va">TRT01P</span>, data <span class="op">=</span> <span class="va">ana</span><span class="op">)</span>
 <span class="va">tbl</span></code></pre></div>
 <div class="Rtable1"><table class="table Rtable1">
 <thead><tr>
@@ -210,55 +208,61 @@
 </table></div>
 <p>The code below transfer the output into a dataframe that only contain ASCII character recommended by regulatory agencies. <code>tbl_base</code> is used as input for <code>r2rtf</code> to create final report.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">tbl_base</span> <span class="op">&lt;-</span> <span class="va">tbl</span> <span class="op">%&gt;%</span> 
-              <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span> 
-              <span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html">as_tibble</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span>
-              <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/across.html">across</a></span><span class="op">(</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/everything.html">everything</a></span><span class="op">(</span><span class="op">)</span>, 
-                      <span class="op">~</span> <span class="fu"><a href="https://stringr.tidyverse.org/reference/str_replace.html">str_replace_all</a></span><span class="op">(</span><span class="va">.x</span>, <span class="fu"><a href="https://rdrr.io/r/base/utf8Conversion.html">intToUtf8</a></span><span class="op">(</span><span class="fl">160</span><span class="op">)</span>, <span class="st">" "</span><span class="op">)</span> <span class="op">)</span> 
-                    <span class="op">)</span> 
-              
+<code class="sourceCode R"><span class="va">tbl_base</span> <span class="op">&lt;-</span> <span class="va">tbl</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html" class="external-link">as.data.frame</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html" class="external-link">as_tibble</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/across.html" class="external-link">across</a></span><span class="op">(</span>
+    <span class="fu"><a href="https://tidyselect.r-lib.org/reference/everything.html" class="external-link">everything</a></span><span class="op">(</span><span class="op">)</span>,
+    <span class="op">~</span> <span class="fu"><a href="https://stringr.tidyverse.org/reference/str_replace.html" class="external-link">str_replace_all</a></span><span class="op">(</span><span class="va">.x</span>, <span class="fu"><a href="https://rdrr.io/r/base/utf8Conversion.html" class="external-link">intToUtf8</a></span><span class="op">(</span><span class="fl">160</span><span class="op">)</span>, <span class="st">" "</span><span class="op">)</span>
+  <span class="op">)</span><span class="op">)</span>
 
-<span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">tbl_base</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://stringr.tidyverse.org/reference/str_replace.html">str_replace_all</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">tbl_base</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/utf8Conversion.html">intToUtf8</a></span><span class="op">(</span><span class="fl">160</span><span class="op">)</span>, <span class="st">" "</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">tbl_base</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://stringr.tidyverse.org/reference/str_replace.html" class="external-link">str_replace_all</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">tbl_base</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/utf8Conversion.html" class="external-link">intToUtf8</a></span><span class="op">(</span><span class="fl">160</span><span class="op">)</span>, <span class="st">" "</span><span class="op">)</span>
 <span class="va">tbl_base</span></code></pre></div>
-<pre><code>## # A tibble: 11 × 5
-##    ` `              Placebo     `Xanomeline High … `Xanomeline Low … Overall    
-##    &lt;chr&gt;            &lt;chr&gt;       &lt;chr&gt;              &lt;chr&gt;             &lt;chr&gt;      
-##  1 ""               "(N=86)"    "(N=84)"           "(N=84)"          "(N=254)"  
-##  2 "SEX"            ""          ""                 ""                ""         
-##  3 "  Female"       "53 (61.6%… "40 (47.6%)"       "50 (59.5%)"      "143 (56.3…
-##  4 "  Male"         "33 (38.4%… "44 (52.4%)"       "34 (40.5%)"      "111 (43.7…
-##  5 "Age"            ""          ""                 ""                ""         
-##  6 "  Mean (SD)"    "75.2 (8.5… "74.4 (7.89)"      "75.7 (8.29)"     "75.1 (8.2…
-##  7 "  Median [Min,… "76.0 [52.… "76.0 [56.0, 88.0… "77.5 [51.0, 88.… "77.0 [51.…
-##  8 "RACE"           ""          ""                 ""                ""         
-##  9 "  Black or Afr… "8 (9.3%)"  "9 (10.7%)"        "6 (7.1%)"        "23 (9.1%)"
-## 10 "  White"        "78 (90.7%… "74 (88.1%)"       "78 (92.9%)"      "230 (90.6…
-## 11 "  American Ind… "0 (0%)"    "1 (1.2%)"         "0 (0%)"          "1 (0.4%)"</code></pre>
+<pre><code><span class="co">## <span style="color: #949494;"># A tibble: 11 × 5</span></span>
+<span class="co">##    ` `                         Placebo `Xanomeline Hi…` `Xanomeline Lo…` Overall</span>
+<span class="co">##    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  </span>
+<span class="co">## <span style="color: #BCBCBC;"> 1</span> <span style="color: #949494;">""</span>                          <span style="color: #949494;">"</span>(N=86… <span style="color: #949494;">"</span>(N=84)<span style="color: #949494;">"</span>         <span style="color: #949494;">"</span>(N=84)<span style="color: #949494;">"</span>         <span style="color: #949494;">"</span>(N=25…</span>
+<span class="co">## <span style="color: #BCBCBC;"> 2</span> <span style="color: #949494;">"</span>SEX<span style="color: #949494;">"</span>                       <span style="color: #949494;">""</span>      <span style="color: #949494;">""</span>               <span style="color: #949494;">""</span>               <span style="color: #949494;">""</span>     </span>
+<span class="co">## <span style="color: #BCBCBC;"> 3</span> <span style="color: #949494;">"</span>  Female<span style="color: #949494;">"</span>                  <span style="color: #949494;">"</span>53 (6… <span style="color: #949494;">"</span>40 (47.6%)<span style="color: #949494;">"</span>     <span style="color: #949494;">"</span>50 (59.5%)<span style="color: #949494;">"</span>     <span style="color: #949494;">"</span>143 (…</span>
+<span class="co">## <span style="color: #BCBCBC;"> 4</span> <span style="color: #949494;">"</span>  Male<span style="color: #949494;">"</span>                    <span style="color: #949494;">"</span>33 (3… <span style="color: #949494;">"</span>44 (52.4%)<span style="color: #949494;">"</span>     <span style="color: #949494;">"</span>34 (40.5%)<span style="color: #949494;">"</span>     <span style="color: #949494;">"</span>111 (…</span>
+<span class="co">## <span style="color: #BCBCBC;"> 5</span> <span style="color: #949494;">"</span>Age<span style="color: #949494;">"</span>                       <span style="color: #949494;">""</span>      <span style="color: #949494;">""</span>               <span style="color: #949494;">""</span>               <span style="color: #949494;">""</span>     </span>
+<span class="co">## <span style="color: #BCBCBC;"> 6</span> <span style="color: #949494;">"</span>  Mean (SD)<span style="color: #949494;">"</span>               <span style="color: #949494;">"</span>75.2 … <span style="color: #949494;">"</span>74.4 (7.89)<span style="color: #949494;">"</span>    <span style="color: #949494;">"</span>75.7 (8.29)<span style="color: #949494;">"</span>    <span style="color: #949494;">"</span>75.1 …</span>
+<span class="co">## <span style="color: #BCBCBC;"> 7</span> <span style="color: #949494;">"</span>  Median [Min, Max]<span style="color: #949494;">"</span>       <span style="color: #949494;">"</span>76.0 … <span style="color: #949494;">"</span>76.0 [56.0, 88… <span style="color: #949494;">"</span>77.5 [51.0, 88… <span style="color: #949494;">"</span>77.0 …</span>
+<span class="co">## <span style="color: #BCBCBC;"> 8</span> <span style="color: #949494;">"</span>RACE<span style="color: #949494;">"</span>                      <span style="color: #949494;">""</span>      <span style="color: #949494;">""</span>               <span style="color: #949494;">""</span>               <span style="color: #949494;">""</span>     </span>
+<span class="co">## <span style="color: #BCBCBC;"> 9</span> <span style="color: #949494;">"</span>  Black or African Americ… <span style="color: #949494;">"</span>8 (9.… <span style="color: #949494;">"</span>9 (10.7%)<span style="color: #949494;">"</span>      <span style="color: #949494;">"</span>6 (7.1%)<span style="color: #949494;">"</span>       <span style="color: #949494;">"</span>23 (9…</span>
+<span class="co">## <span style="color: #BCBCBC;">10</span> <span style="color: #949494;">"</span>  White<span style="color: #949494;">"</span>                   <span style="color: #949494;">"</span>78 (9… <span style="color: #949494;">"</span>74 (88.1%)<span style="color: #949494;">"</span>     <span style="color: #949494;">"</span>78 (92.9%)<span style="color: #949494;">"</span>     <span style="color: #949494;">"</span>230 (…</span>
+<span class="co">## <span style="color: #BCBCBC;">11</span> <span style="color: #949494;">"</span>  American Indian or Alas… <span style="color: #949494;">"</span>0 (0%… <span style="color: #949494;">"</span>1 (1.2%)<span style="color: #949494;">"</span>       <span style="color: #949494;">"</span>0 (0%)<span style="color: #949494;">"</span>         <span style="color: #949494;">"</span>1 (0.…</span></code></pre>
 <p>We start to define the format of the output. We highlight items that are not discussed in previous discussion.</p>
 <p><code>text_indent_first</code> and <code>test_indent_left</code> are used to control the indent space of text. They are helpful when you need to control the white space of a long sentence. For example, “AMERICAN INDIAN OR ALASKA NATIVE” in the table.</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">colheader1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">tbl_base</span><span class="op">)</span>, collapse <span class="op">=</span> <span class="st">"|"</span><span class="op">)</span>
-<span class="va">colheader2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="va">tbl_base</span><span class="op">[</span><span class="fl">1</span>, <span class="op">]</span>, collapse <span class="op">=</span> <span class="st">"|"</span><span class="op">)</span>
-<span class="va">rel_width</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2.5</span>, <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">4</span><span class="op">)</span><span class="op">)</span>
+<code class="sourceCode R"><span class="va">colheader1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">tbl_base</span><span class="op">)</span>, collapse <span class="op">=</span> <span class="st">"|"</span><span class="op">)</span>
+<span class="va">colheader2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste</a></span><span class="op">(</span><span class="va">tbl_base</span><span class="op">[</span><span class="fl">1</span>, <span class="op">]</span>, collapse <span class="op">=</span> <span class="st">"|"</span><span class="op">)</span>
+<span class="va">rel_width</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">2.5</span>, <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">4</span><span class="op">)</span><span class="op">)</span>
 
-<span class="va">tbl_base</span><span class="op">[</span><span class="op">-</span><span class="fl">1</span>, <span class="op">]</span> <span class="op">%&gt;%</span> 
-      <span class="fu"><a href="https://merck.github.io/r2rtf/reference/rtf_title.html">rtf_title</a></span><span class="op">(</span><span class="st">"Participant Baseline Characteristics"</span>, 
-                <span class="st">"(All Participants Randomized)"</span><span class="op">)</span> <span class="op">%&gt;%</span>
-      <span class="fu"><a href="https://merck.github.io/r2rtf/reference/rtf_colheader.html">rtf_colheader</a></span><span class="op">(</span><span class="va">colheader1</span>, 
-                    col_rel_width <span class="op">=</span> <span class="va">rel_width</span><span class="op">)</span> <span class="op">%&gt;%</span> 
-      <span class="fu"><a href="https://merck.github.io/r2rtf/reference/rtf_colheader.html">rtf_colheader</a></span><span class="op">(</span><span class="va">colheader2</span>, 
-                    border_top <span class="op">=</span> <span class="st">""</span>,
-                    col_rel_width <span class="op">=</span> <span class="va">rel_width</span><span class="op">)</span> <span class="op">%&gt;%</span>
-      <span class="fu"><a href="https://merck.github.io/r2rtf/reference/rtf_body.html">rtf_body</a></span><span class="op">(</span>col_rel_width <span class="op">=</span> <span class="va">rel_width</span>,
-               text_justification <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"l"</span>, <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="st">"c"</span>, <span class="fl">4</span><span class="op">)</span><span class="op">)</span>, 
-               text_indent_first <span class="op">=</span> <span class="op">-</span><span class="fl">240</span>,
-               text_indent_left <span class="op">=</span> <span class="fl">180</span><span class="op">)</span> <span class="op">%&gt;%</span> 
-      <span class="fu"><a href="https://merck.github.io/r2rtf/reference/rtf_encode.html">rtf_encode</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span> 
-      <span class="fu"><a href="https://merck.github.io/r2rtf/reference/write_rtf.html">write_rtf</a></span><span class="op">(</span><span class="st">"tlf/tlf_base.rtf"</span><span class="op">)</span></code></pre></div>
+<span class="va">tbl_base</span><span class="op">[</span><span class="op">-</span><span class="fl">1</span>, <span class="op">]</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://merck.github.io/r2rtf/reference/rtf_title.html" class="external-link">rtf_title</a></span><span class="op">(</span>
+    <span class="st">"Participant Baseline Characteristics"</span>,
+    <span class="st">"(All Participants Randomized)"</span>
+  <span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://merck.github.io/r2rtf/reference/rtf_colheader.html" class="external-link">rtf_colheader</a></span><span class="op">(</span><span class="va">colheader1</span>,
+    col_rel_width <span class="op">=</span> <span class="va">rel_width</span>
+  <span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://merck.github.io/r2rtf/reference/rtf_colheader.html" class="external-link">rtf_colheader</a></span><span class="op">(</span><span class="va">colheader2</span>,
+    border_top <span class="op">=</span> <span class="st">""</span>,
+    col_rel_width <span class="op">=</span> <span class="va">rel_width</span>
+  <span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://merck.github.io/r2rtf/reference/rtf_body.html" class="external-link">rtf_body</a></span><span class="op">(</span>
+    col_rel_width <span class="op">=</span> <span class="va">rel_width</span>,
+    text_justification <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"l"</span>, <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="st">"c"</span>, <span class="fl">4</span><span class="op">)</span><span class="op">)</span>,
+    text_indent_first <span class="op">=</span> <span class="op">-</span><span class="fl">240</span>,
+    text_indent_left <span class="op">=</span> <span class="fl">180</span>
+  <span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://merck.github.io/r2rtf/reference/rtf_encode.html" class="external-link">rtf_encode</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://merck.github.io/r2rtf/reference/write_rtf.html" class="external-link">write_rtf</a></span><span class="op">(</span><span class="st">"tlf/tlf_base.rtf"</span><span class="op">)</span></code></pre></div>
 <p>In conclusion, the procedure to generate demographic and baseline characteristics table is summarized as follows.</p>
 <ul>
 <li>Step 1: Read the data set.</li>
-<li>Step 2: Use <code><a href="https://rdrr.io/pkg/table1/man/table1.html">table1::table1()</a></code> to get the baseline characteristics table.</li>
+<li>Step 2: Use <code><a href="https://rdrr.io/pkg/table1/man/table1.html" class="external-link">table1::table1()</a></code> to get the baseline characteristics table.</li>
 <li>Step 3: Transfer the output in Step 2 into a data frame that only contains ASCII character.</li>
 <li>Step 4: Define the format of the rtf table by using R package <code>r2rtf</code>.</li>
 </ul>
@@ -276,11 +280,13 @@
 
 
       <footer><div class="copyright">
-  <p>Developed by Yilong Zhang.</p>
+  <p></p>
+<p>Developed by Yilong Zhang.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+  <p></p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
 </div>
 
       </footer>
@@ -288,6 +294,8 @@
 
   
 
+
+  
 
   </body>
 </html>

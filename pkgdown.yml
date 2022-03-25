@@ -1,5 +1,5 @@
 pandoc: 2.7.3
-pkgdown: 1.6.1
+pkgdown: 2.0.2
 pkgdown_sha: ~
 articles:
   tlf-01-disposition: tlf-01-disposition.html
@@ -8,5 +8,5 @@ articles:
   tlf-04-efficacy: tlf-04-efficacy.html
   tlf-05-ae-summary: tlf-05-ae-summary.html
   tlf-06-ae-spec: tlf-06-ae-spec.html
-last_built: 2021-11-07T03:23Z
+last_built: 2022-03-25T12:51Z
 

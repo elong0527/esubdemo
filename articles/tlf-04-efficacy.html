@@ -19,6 +19,8 @@
 <![endif]-->
 </head>
 <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-article">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -31,23 +33,17 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">esubdemo</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.0.1</span>
       </span>
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
 <li>
-  <a href="../index.html">
-    <span class="fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
-<li>
   <a href="../reference/index.html">Reference</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Articles
      
     <span class="caret"></span>
@@ -97,43 +93,42 @@
 
     
     
-<div id="efficacy" class="section level1">
-<h1 class="hasAnchor">
-<a href="#efficacy" class="anchor"></a>Efficacy</h1>
-<p>Following <a href="https://database.ich.org/sites/default/files/E3_Guideline.pdf">ICH E3 guidance</a>, we need to summarize primary and secondary efficacy endpoints,<br>
-in Section 11.4, Efficacy Results and Tabulations of Individual Patient.</p>
+<div class="section level2">
+<h2 id="efficacy">Efficacy<a class="anchor" aria-label="anchor" href="#efficacy"></a>
+</h2>
+<p>Following the <a href="https://database.ich.org/sites/default/files/E3_Guideline.pdf" class="external-link">ICH E3 guidance</a>, we need to summarize primary and secondary efficacy endpoints, in Section 11.4, Efficacy Results and Tabulations of Individual Patient.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org//reference/load_all.html">load_all</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
-<pre><code>## Warning in eval(ei, envir): The current R version is not the same with the
-## current project in 4.1.0</code></pre>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">esubdemo</span><span class="op">)</span></code></pre></div>
+<pre><code><span class="co">## Warning in eval(ei, envir): The current R version is not the same with the</span>
+<span class="co">## current project in 4.1.0</span></code></pre>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://haven.tidyverse.org">haven</a></span><span class="op">)</span>   <span class="co"># Read SAS data</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span>   <span class="co"># Manipulate data</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyr.tidyverse.org">tidyr</a></span><span class="op">)</span>   <span class="co"># Manipulate data</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://merck.github.io/r2rtf/">r2rtf</a></span><span class="op">)</span>   <span class="co"># Reporting in RTF format</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/rvlenth/emmeans">emmeans</a></span><span class="op">)</span> <span class="co"># LS mean estimation</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://stringr.tidyverse.org">stringr</a></span><span class="op">)</span> <span class="co"># String manipulation</span></code></pre></div>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://haven.tidyverse.org" class="external-link">haven</a></span><span class="op">)</span> <span class="co"># Read SAS data</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span> <span class="co"># Manipulate data</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyr.tidyverse.org" class="external-link">tidyr</a></span><span class="op">)</span> <span class="co"># Manipulate data</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://merck.github.io/r2rtf/" class="external-link">r2rtf</a></span><span class="op">)</span> <span class="co"># Reporting in RTF format</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/rvlenth/emmeans" class="external-link">emmeans</a></span><span class="op">)</span> <span class="co"># LS means estimation</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="http://stringr.tidyverse.org" class="external-link">stringr</a></span><span class="op">)</span> <span class="co"># String manipulation</span></code></pre></div>
 <p>For efficacy analysis, we only analyze change from baseline glucose data at Week 24.</p>
-<div id="analysis-dataset" class="section level2">
-<h2 class="hasAnchor">
-<a href="#analysis-dataset" class="anchor"></a>Analysis Dataset</h2>
+<div class="section level3">
+<h3 id="analysis-dataset">Analysis Dataset<a class="anchor" aria-label="anchor" href="#analysis-dataset"></a>
+</h3>
 <p>To prepare analysis dataset, we need both <code>adsl</code> and <code>adlbc</code> datasets for this analysis.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">adsl</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://haven.tidyverse.org/reference/read_sas.html">read_sas</a></span><span class="op">(</span><span class="st">"data-adam/adsl.sas7bdat"</span><span class="op">)</span>
-<span class="va">adlb</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://haven.tidyverse.org/reference/read_sas.html">read_sas</a></span><span class="op">(</span><span class="st">"data-adam/adlbc.sas7bdat"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="va">adsl</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://haven.tidyverse.org/reference/read_sas.html" class="external-link">read_sas</a></span><span class="op">(</span><span class="st">"data-adam/adsl.sas7bdat"</span><span class="op">)</span>
+<span class="va">adlb</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://haven.tidyverse.org/reference/read_sas.html" class="external-link">read_sas</a></span><span class="op">(</span><span class="st">"data-adam/adlbc.sas7bdat"</span><span class="op">)</span></code></pre></div>
 <p>We first define the analysis dataset using efficacy population flag <code>EFFFL</code> and all records post baseline (<code>AVISITN &gt; 1</code>) and on or before Week 24 (<code>AVISITN &lt;= 24</code>). Here the variable <code>AVISITN</code> is the numerical analysis visit. For example, if the analysis visit is recorded as “Baseline”, i.e., <code>AVISIT = Baseline</code>, then <code>AVISITN = 0</code>; if the analysis visit is recorded as “Week 24”, i.e., <code>AVISIT = Week 24</code>, then <code>AVISITN = 24</code>; if the analysis visit is blank, then <code>AVISITN</code> is also blank. We will discuss these missing values in Section 6.4.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">gluc</span> <span class="op">&lt;-</span> <span class="va">adlb</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">left_join</a></span><span class="op">(</span><span class="va">adsl</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">USUBJID</span>, <span class="va">EFFFL</span><span class="op">)</span>, by <span class="op">=</span> <span class="st">"USUBJID"</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="co"># PARAMCD is parameter code and here we focus on Glucose (mg/dL) </span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">EFFFL</span> <span class="op">==</span> <span class="st">"Y"</span> <span class="op">&amp;</span> <span class="va">PARAMCD</span> <span class="op">==</span> <span class="st">"GLUC"</span><span class="op">)</span> <span class="op">%&gt;%</span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="va">TRTPN</span><span class="op">)</span> <span class="op">%&gt;%</span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>TRTP <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">TRTP</span>, levels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="va">TRTP</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>
+<code class="sourceCode R"><span class="va">gluc</span> <span class="op">&lt;-</span> <span class="va">adlb</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">left_join</a></span><span class="op">(</span><span class="va">adsl</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">USUBJID</span>, <span class="va">EFFFL</span><span class="op">)</span>, by <span class="op">=</span> <span class="st">"USUBJID"</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span>
+  <span class="co"># PARAMCD is parameter code and here we focus on Glucose (mg/dL)</span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">EFFFL</span> <span class="op">==</span> <span class="st">"Y"</span> <span class="op">&amp;</span> <span class="va">PARAMCD</span> <span class="op">==</span> <span class="st">"GLUC"</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html" class="external-link">arrange</a></span><span class="op">(</span><span class="va">TRTPN</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>TRTP <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">factor</a></span><span class="op">(</span><span class="va">TRTP</span>, levels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/unique.html" class="external-link">unique</a></span><span class="op">(</span><span class="va">TRTP</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>
 
-<span class="va">ana</span> <span class="op">&lt;-</span> <span class="va">gluc</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">AVISITN</span> <span class="op">&gt;</span> <span class="fl">0</span> <span class="op">&amp;</span> <span class="va">AVISITN</span> <span class="op">&lt;=</span> <span class="fl">24</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="va">AVISITN</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>AVISIT <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">AVISIT</span>, levels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="va">AVISIT</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<span class="va">ana</span> <span class="op">&lt;-</span> <span class="va">gluc</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">AVISITN</span> <span class="op">&gt;</span> <span class="fl">0</span> <span class="op">&amp;</span> <span class="va">AVISITN</span> <span class="op">&lt;=</span> <span class="fl">24</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html" class="external-link">arrange</a></span><span class="op">(</span><span class="va">AVISITN</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>AVISIT <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">factor</a></span><span class="op">(</span><span class="va">AVISIT</span>, levels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/unique.html" class="external-link">unique</a></span><span class="op">(</span><span class="va">AVISIT</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <p>Below is the first few records of the analysis dataset.</p>
 <ul>
 <li>AVAL: analysis value</li>
@@ -141,239 +136,245 @@ in Section 11.4, Efficacy Results and Tabulations of Individual Patient.</p>
 <li>CHG: change from baseline</li>
 </ul>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">ana</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">USUBJID</span>, <span class="va">TRTPN</span>, <span class="va">AVISIT</span>, <span class="va">AVAL</span>, <span class="va">BASE</span>, <span class="va">CHG</span><span class="op">)</span> <span class="op">%&gt;%</span>  
-  <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="fl">4</span><span class="op">)</span></code></pre></div>
-<pre><code>## # A tibble: 4 × 6
-##   USUBJID     TRTPN AVISIT              AVAL  BASE     CHG
-##   &lt;chr&gt;       &lt;dbl&gt; &lt;fct&gt;              &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;
-## 1 01-701-1015     0 "          Week 2"  4.66  4.72 -0.0555
-## 2 01-701-1023     0 "          Week 2"  5.77  5.33  0.444 
-## 3 01-701-1047     0 "          Week 2"  5.55  5.55  0     
-## 4 01-701-1118     0 "          Week 2"  4.88  4.05  0.833</code></pre>
+<code class="sourceCode R"><span class="va">ana</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">USUBJID</span>, <span class="va">TRTPN</span>, <span class="va">AVISIT</span>, <span class="va">AVAL</span>, <span class="va">BASE</span>, <span class="va">CHG</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="fl">4</span><span class="op">)</span></code></pre></div>
+<pre><code><span class="co">## <span style="color: #949494;"># A tibble: 4 × 6</span></span>
+<span class="co">##   USUBJID     TRTPN AVISIT              AVAL  BASE     CHG</span>
+<span class="co">##   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span>              <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
+<span class="co">## <span style="color: #BCBCBC;">1</span> 01-701-1015     0 <span style="color: #949494;">"</span>          Week 2<span style="color: #949494;">"</span>  4.66  4.72 -<span style="color: #BB0000;">0.055</span><span style="color: #BB0000; text-decoration: underline;">5</span></span>
+<span class="co">## <span style="color: #BCBCBC;">2</span> 01-701-1023     0 <span style="color: #949494;">"</span>          Week 2<span style="color: #949494;">"</span>  5.77  5.33  0.444 </span>
+<span class="co">## <span style="color: #BCBCBC;">3</span> 01-701-1047     0 <span style="color: #949494;">"</span>          Week 2<span style="color: #949494;">"</span>  5.55  5.55  0     </span>
+<span class="co">## <span style="color: #BCBCBC;">4</span> 01-701-1118     0 <span style="color: #949494;">"</span>          Week 2<span style="color: #949494;">"</span>  4.88  4.05  0.833</span></code></pre>
 </div>
-<div id="summary-of-observed-data" class="section level2">
-<h2 class="hasAnchor">
-<a href="#summary-of-observed-data" class="anchor"></a>Summary of Observed Data</h2>
+<div class="section level3">
+<h3 id="summary-of-observed-data">Summary of Observed Data<a class="anchor" aria-label="anchor" href="#summary-of-observed-data"></a>
+</h3>
 <p>We first summarize observed data at Baseline and Week 24</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">t11</span> <span class="op">&lt;-</span> <span class="va">gluc</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">AVISITN</span> <span class="op">%in%</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">24</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">TRTPN</span>, <span class="va">TRTP</span>, <span class="va">AVISITN</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>
-    n <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/context.html">n</a></span><span class="op">(</span><span class="op">)</span>,
-    mean_sd <span class="op">=</span> <span class="fu"><a href="../reference/fmt_est.html">fmt_est</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">AVAL</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">AVAL</span><span class="op">)</span><span class="op">)</span>
-  <span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_wider.html">pivot_wider</a></span><span class="op">(</span>
-    id_cols <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">TRTP</span>, <span class="va">TRTPN</span><span class="op">)</span>,
+<code class="sourceCode R"><span class="va">t11</span> <span class="op">&lt;-</span> <span class="va">gluc</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">AVISITN</span> <span class="op"><a href="https://rdrr.io/r/base/match.html" class="external-link">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">24</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span><span class="va">TRTPN</span>, <span class="va">TRTP</span>, <span class="va">AVISITN</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html" class="external-link">summarise</a></span><span class="op">(</span>
+    n <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/context.html" class="external-link">n</a></span><span class="op">(</span><span class="op">)</span>,
+    mean_sd <span class="op">=</span> <span class="fu"><a href="../reference/fmt_est.html">fmt_est</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/mean.html" class="external-link">mean</a></span><span class="op">(</span><span class="va">AVAL</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/stats/sd.html" class="external-link">sd</a></span><span class="op">(</span><span class="va">AVAL</span><span class="op">)</span><span class="op">)</span>
+  <span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_wider.html" class="external-link">pivot_wider</a></span><span class="op">(</span>
+    id_cols <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">TRTP</span>, <span class="va">TRTPN</span><span class="op">)</span>,
     names_from <span class="op">=</span> <span class="va">AVISITN</span>,
-    values_from <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">n</span>, <span class="va">mean_sd</span><span class="op">)</span>
+    values_from <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">n</span>, <span class="va">mean_sd</span><span class="op">)</span>
   <span class="op">)</span></code></pre></div>
-<pre><code>## `summarise()` has grouped output by 'TRTPN', 'TRTP'. You can override using the `.groups` argument.</code></pre>
+<pre><code><span class="co">## `summarise()` has grouped output by 'TRTPN', 'TRTP'. You can override using the</span>
+<span class="co">## `.groups` argument.</span></code></pre>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">t11</span></code></pre></div>
-<pre><code>## # A tibble: 3 × 6
-## # Groups:   TRTPN, TRTP [3]
-##   TRTP                 TRTPN   n_0  n_24 mean_sd_0       mean_sd_24     
-##   &lt;fct&gt;                &lt;dbl&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt;           &lt;chr&gt;          
-## 1 Placebo                  0    79    57 "  5.7 ( 2.23)" "  5.7 ( 1.83)"
-## 2 Xanomeline Low Dose     54    79    26 "  5.4 ( 0.95)" "  5.7 ( 1.26)"
-## 3 Xanomeline High Dose    81    74    30 "  5.4 ( 1.37)" "  6.0 ( 1.92)"</code></pre>
+<pre><code><span class="co">## <span style="color: #949494;"># A tibble: 3 × 6</span></span>
+<span class="co">## <span style="color: #949494;"># Groups:   TRTPN, TRTP [3]</span></span>
+<span class="co">##   TRTP                 TRTPN   n_0  n_24 mean_sd_0       mean_sd_24     </span>
+<span class="co">##   <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span>                <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          </span>
+<span class="co">## <span style="color: #BCBCBC;">1</span> Placebo                  0    79    57 <span style="color: #949494;">"</span>  5.7 ( 2.23)<span style="color: #949494;">"</span> <span style="color: #949494;">"</span>  5.7 ( 1.83)<span style="color: #949494;">"</span></span>
+<span class="co">## <span style="color: #BCBCBC;">2</span> Xanomeline Low Dose     54    79    26 <span style="color: #949494;">"</span>  5.4 ( 0.95)<span style="color: #949494;">"</span> <span style="color: #949494;">"</span>  5.7 ( 1.26)<span style="color: #949494;">"</span></span>
+<span class="co">## <span style="color: #BCBCBC;">3</span> Xanomeline High Dose    81    74    30 <span style="color: #949494;">"</span>  5.4 ( 1.37)<span style="color: #949494;">"</span> <span style="color: #949494;">"</span>  6.0 ( 1.92)<span style="color: #949494;">"</span></span></code></pre>
 <p>We also summarize observed change from baseline glucose at Week 24.</p>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">t12</span> <span class="op">&lt;-</span> <span class="va">gluc</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">AVISITN</span> <span class="op">%in%</span> <span class="fl">24</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">TRTPN</span>, <span class="va">AVISITN</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>
-    n_chg <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/context.html">n</a></span><span class="op">(</span><span class="op">)</span>,
+<code class="sourceCode R"><span class="va">t12</span> <span class="op">&lt;-</span> <span class="va">gluc</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">AVISITN</span> <span class="op"><a href="https://rdrr.io/r/base/match.html" class="external-link">%in%</a></span> <span class="fl">24</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span><span class="va">TRTPN</span>, <span class="va">AVISITN</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html" class="external-link">summarise</a></span><span class="op">(</span>
+    n_chg <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/context.html" class="external-link">n</a></span><span class="op">(</span><span class="op">)</span>,
     mean_chg <span class="op">=</span> <span class="fu"><a href="../reference/fmt_est.html">fmt_est</a></span><span class="op">(</span>
-      <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">CHG</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>,
-      <span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">CHG</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
+      <span class="fu"><a href="https://rdrr.io/r/base/mean.html" class="external-link">mean</a></span><span class="op">(</span><span class="va">CHG</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>,
+      <span class="fu"><a href="https://rdrr.io/r/stats/sd.html" class="external-link">sd</a></span><span class="op">(</span><span class="va">CHG</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
     <span class="op">)</span>
   <span class="op">)</span></code></pre></div>
-<pre><code>## `summarise()` has grouped output by 'TRTPN'. You can override using the `.groups` argument.</code></pre>
+<pre><code><span class="co">## `summarise()` has grouped output by 'TRTPN'. You can override using the</span>
+<span class="co">## `.groups` argument.</span></code></pre>
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">t12</span></code></pre></div>
-<pre><code>## # A tibble: 3 × 4
-## # Groups:   TRTPN [3]
-##   TRTPN AVISITN n_chg mean_chg       
-##   &lt;dbl&gt;   &lt;dbl&gt; &lt;int&gt; &lt;chr&gt;          
-## 1     0      24    57 " -0.1 ( 2.68)"
-## 2    54      24    26 "  0.2 ( 0.82)"
-## 3    81      24    30 "  0.5 ( 1.94)"</code></pre>
+<pre><code><span class="co">## <span style="color: #949494;"># A tibble: 3 × 4</span></span>
+<span class="co">## <span style="color: #949494;"># Groups:   TRTPN [3]</span></span>
+<span class="co">##   TRTPN AVISITN n_chg mean_chg       </span>
+<span class="co">##   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          </span>
+<span class="co">## <span style="color: #BCBCBC;">1</span>     0      24    57 <span style="color: #949494;">"</span> -0.1 ( 2.68)<span style="color: #949494;">"</span></span>
+<span class="co">## <span style="color: #BCBCBC;">2</span>    54      24    26 <span style="color: #949494;">"</span>  0.2 ( 0.82)<span style="color: #949494;">"</span></span>
+<span class="co">## <span style="color: #BCBCBC;">3</span>    81      24    30 <span style="color: #949494;">"</span>  0.5 ( 1.94)<span style="color: #949494;">"</span></span></code></pre>
 </div>
-<div id="missing-data-imputation" class="section level2">
-<h2 class="hasAnchor">
-<a href="#missing-data-imputation" class="anchor"></a>Missing Data Imputation</h2>
+<div class="section level3">
+<h3 id="missing-data-imputation">Missing Data Imputation<a class="anchor" aria-label="anchor" href="#missing-data-imputation"></a>
+</h3>
 <p>In clinical trials, missing data is inevitable. In this study, there are also missing values in glucose data.</p>
 <div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://dplyr.tidyverse.org/reference/count.html">count</a></span><span class="op">(</span><span class="va">ana</span>, <span class="va">AVISIT</span><span class="op">)</span></code></pre></div>
-<pre><code>## # A tibble: 8 × 2
-##   AVISIT                 n
-##   &lt;fct&gt;              &lt;int&gt;
-## 1 "          Week 2"   229
-## 2 "          Week 4"   211
-## 3 "          Week 6"   197
-## 4 "          Week 8"   187
-## 5 "         Week 12"   167
-## 6 "         Week 16"   147
-## 7 "         Week 20"   126
-## 8 "         Week 24"   113</code></pre>
-<p>For simplicity and illustration purpose, we use the last observation carried forward (LOCF) approach to handle missing data. LOCF approach is a single imputation approach that is <strong>not recommended</strong> in real studies. Interested readers can find more discussion on missing data approaches in the book: <a href="https://www.ncbi.nlm.nih.gov/books/NBK209904/pdf/Bookshelf_NBK209904.pdf">The Prevention and Treatment of Missing Data in Clinical Trials</a>.</p>
+<code class="sourceCode R"><span class="fu"><a href="https://dplyr.tidyverse.org/reference/count.html" class="external-link">count</a></span><span class="op">(</span><span class="va">ana</span>, <span class="va">AVISIT</span><span class="op">)</span></code></pre></div>
+<pre><code><span class="co">## <span style="color: #949494;"># A tibble: 8 × 2</span></span>
+<span class="co">##   AVISIT                 n</span>
+<span class="co">##   <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span>              <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span>
+<span class="co">## <span style="color: #BCBCBC;">1</span> <span style="color: #949494;">"</span>          Week 2<span style="color: #949494;">"</span>   229</span>
+<span class="co">## <span style="color: #BCBCBC;">2</span> <span style="color: #949494;">"</span>          Week 4<span style="color: #949494;">"</span>   211</span>
+<span class="co">## <span style="color: #BCBCBC;">3</span> <span style="color: #949494;">"</span>          Week 6<span style="color: #949494;">"</span>   197</span>
+<span class="co">## <span style="color: #BCBCBC;">4</span> <span style="color: #949494;">"</span>          Week 8<span style="color: #949494;">"</span>   187</span>
+<span class="co">## <span style="color: #BCBCBC;">5</span> <span style="color: #949494;">"</span>         Week 12<span style="color: #949494;">"</span>   167</span>
+<span class="co">## <span style="color: #BCBCBC;">6</span> <span style="color: #949494;">"</span>         Week 16<span style="color: #949494;">"</span>   147</span>
+<span class="co">## <span style="color: #BCBCBC;">7</span> <span style="color: #949494;">"</span>         Week 20<span style="color: #949494;">"</span>   126</span>
+<span class="co">## <span style="color: #BCBCBC;">8</span> <span style="color: #949494;">"</span>         Week 24<span style="color: #949494;">"</span>   113</span></code></pre>
+<p>For simplicity and illustration purpose, we use the last observation carried forward (LOCF) approach to handle missing data. LOCF approach is a single imputation approach that is <strong>not recommended</strong> in real studies. Interested readers can find more discussion on missing data approaches in the book: <a href="https://www.ncbi.nlm.nih.gov/books/NBK209904/pdf/Bookshelf_NBK209904.pdf" class="external-link">The Prevention and Treatment of Missing Data in Clinical Trials</a>.</p>
 <div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">ana_locf</span> <span class="op">&lt;-</span> <span class="va">ana</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">USUBJID</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>locf <span class="op">=</span> <span class="va">AVISITN</span> <span class="op">==</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="va">AVISITN</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">locf</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="va">ana_locf</span> <span class="op">&lt;-</span> <span class="va">ana</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span><span class="va">USUBJID</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>locf <span class="op">=</span> <span class="va">AVISITN</span> <span class="op">==</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html" class="external-link">max</a></span><span class="op">(</span><span class="va">AVISITN</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">locf</span><span class="op">)</span></code></pre></div>
 </div>
-<div id="ancova-model" class="section level2">
-<h2 class="hasAnchor">
-<a href="#ancova-model" class="anchor"></a>ANCOVA model</h2>
+<div class="section level3">
+<h3 id="ancova-model">ANCOVA model<a class="anchor" aria-label="anchor" href="#ancova-model"></a>
+</h3>
 <p>We start to analyze the imputed data using ANCOVA model with treatment and baseline glucose as covariates.</p>
 <div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">fit</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">CHG</span> <span class="op">~</span> <span class="va">BASE</span> <span class="op">+</span> <span class="va">TRTP</span>, data <span class="op">=</span> <span class="va">ana_locf</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">fit</span><span class="op">)</span></code></pre></div>
-<pre><code>## 
-## Call:
-## lm(formula = CHG ~ BASE + TRTP, data = ana_locf)
-## 
-## Residuals:
-##     Min      1Q  Median      3Q     Max 
-## -6.9907 -0.7195 -0.2367  0.2422  7.0754 
-## 
-## Coefficients:
-##                          Estimate Std. Error t value Pr(&gt;|t|)    
-## (Intercept)               3.00836    0.39392   7.637 6.23e-13 ***
-## BASE                     -0.53483    0.06267  -8.535 2.06e-15 ***
-## TRTPXanomeline Low Dose  -0.17367    0.24421  -0.711    0.478    
-## TRTPXanomeline High Dose  0.32983    0.24846   1.327    0.186    
-## ---
-## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-## 
-## Residual standard error: 1.527 on 226 degrees of freedom
-##   (2 observations deleted due to missingness)
-## Multiple R-squared:  0.2567, Adjusted R-squared:  0.2468 
-## F-statistic: 26.01 on 3 and 226 DF,  p-value: 1.714e-14</code></pre>
+<code class="sourceCode R"><span class="va">fit</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html" class="external-link">lm</a></span><span class="op">(</span><span class="va">CHG</span> <span class="op">~</span> <span class="va">BASE</span> <span class="op">+</span> <span class="va">TRTP</span>, data <span class="op">=</span> <span class="va">ana_locf</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">fit</span><span class="op">)</span></code></pre></div>
+<pre><code><span class="co">## </span>
+<span class="co">## Call:</span>
+<span class="co">## lm(formula = CHG ~ BASE + TRTP, data = ana_locf)</span>
+<span class="co">## </span>
+<span class="co">## Residuals:</span>
+<span class="co">##     Min      1Q  Median      3Q     Max </span>
+<span class="co">## -6.9907 -0.7195 -0.2367  0.2422  7.0754 </span>
+<span class="co">## </span>
+<span class="co">## Coefficients:</span>
+<span class="co">##                          Estimate Std. Error t value Pr(&gt;|t|)    </span>
+<span class="co">## (Intercept)               3.00836    0.39392   7.637 6.23e-13 ***</span>
+<span class="co">## BASE                     -0.53483    0.06267  -8.535 2.06e-15 ***</span>
+<span class="co">## TRTPXanomeline Low Dose  -0.17367    0.24421  -0.711    0.478    </span>
+<span class="co">## TRTPXanomeline High Dose  0.32983    0.24846   1.327    0.186    </span>
+<span class="co">## ---</span>
+<span class="co">## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span>
+<span class="co">## </span>
+<span class="co">## Residual standard error: 1.527 on 226 degrees of freedom</span>
+<span class="co">##   (2 observations deleted due to missingness)</span>
+<span class="co">## Multiple R-squared:  0.2567, Adjusted R-squared:  0.2468 </span>
+<span class="co">## F-statistic: 26.01 on 3 and 226 DF,  p-value: 1.714e-14</span></code></pre>
 <p>Then we use the <code>emmeans</code> R package to obtain within and between group least square mean (LS mean)</p>
 <div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">fit_within</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/emmeans/man/emmeans.html">emmeans</a></span><span class="op">(</span><span class="va">fit</span>, <span class="st">"TRTP"</span><span class="op">)</span>
+<code class="sourceCode R"><span class="va">fit_within</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/emmeans/man/emmeans.html" class="external-link">emmeans</a></span><span class="op">(</span><span class="va">fit</span>, <span class="st">"TRTP"</span><span class="op">)</span>
 <span class="va">fit_within</span></code></pre></div>
-<pre><code>##  TRTP                  emmean    SE  df lower.CL upper.CL
-##  Placebo               0.0676 0.172 226   -0.272    0.407
-##  Xanomeline Low Dose  -0.1060 0.173 226   -0.447    0.235
-##  Xanomeline High Dose  0.3975 0.179 226    0.045    0.750
-## 
-## Confidence level used: 0.95</code></pre>
+<pre><code><span class="co">##  TRTP                  emmean    SE  df lower.CL upper.CL</span>
+<span class="co">##  Placebo               0.0676 0.172 226   -0.272    0.407</span>
+<span class="co">##  Xanomeline Low Dose  -0.1060 0.173 226   -0.447    0.235</span>
+<span class="co">##  Xanomeline High Dose  0.3975 0.179 226    0.045    0.750</span>
+<span class="co">## </span>
+<span class="co">## Confidence level used: 0.95</span></code></pre>
 <div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">t13</span> <span class="op">&lt;-</span> <span class="va">fit_within</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html">as_tibble</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>ls <span class="op">=</span> <span class="fu"><a href="../reference/fmt_ci.html">fmt_ci</a></span><span class="op">(</span><span class="va">emmean</span>, <span class="va">lower.CL</span>, <span class="va">upper.CL</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">TRTP</span>, <span class="va">ls</span><span class="op">)</span>
+<code class="sourceCode R"><span class="va">t13</span> <span class="op">&lt;-</span> <span class="va">fit_within</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html" class="external-link">as_tibble</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>ls <span class="op">=</span> <span class="fu"><a href="../reference/fmt_ci.html">fmt_ci</a></span><span class="op">(</span><span class="va">emmean</span>, <span class="va">lower.CL</span>, <span class="va">upper.CL</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">TRTP</span>, <span class="va">ls</span><span class="op">)</span>
 <span class="va">t13</span></code></pre></div>
-<pre><code>## # A tibble: 3 × 2
-##   TRTP                 ls                   
-##   &lt;fct&gt;                &lt;chr&gt;                
-## 1 Placebo              " 0.07 (-0.27, 0.41)"
-## 2 Xanomeline Low Dose  "-0.11 (-0.45, 0.23)"
-## 3 Xanomeline High Dose " 0.40 ( 0.05, 0.75)"</code></pre>
+<pre><code><span class="co">## <span style="color: #949494;"># A tibble: 3 × 2</span></span>
+<span class="co">##   TRTP                 ls                   </span>
+<span class="co">##   <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span>                <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                </span>
+<span class="co">## <span style="color: #BCBCBC;">1</span> Placebo              <span style="color: #949494;">"</span> 0.07 (-0.27, 0.41)<span style="color: #949494;">"</span></span>
+<span class="co">## <span style="color: #BCBCBC;">2</span> Xanomeline Low Dose  <span style="color: #949494;">"</span>-0.11 (-0.45, 0.23)<span style="color: #949494;">"</span></span>
+<span class="co">## <span style="color: #BCBCBC;">3</span> Xanomeline High Dose <span style="color: #949494;">"</span> 0.40 ( 0.05, 0.75)<span style="color: #949494;">"</span></span></code></pre>
 <div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">fit_between</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/graphics/pairs.html">pairs</a></span><span class="op">(</span><span class="va">fit_within</span>, reverse <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
+<code class="sourceCode R"><span class="va">fit_between</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/graphics/pairs.html" class="external-link">pairs</a></span><span class="op">(</span><span class="va">fit_within</span>, reverse <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
 <span class="va">fit_between</span></code></pre></div>
-<pre><code>##  contrast                                   estimate    SE  df t.ratio p.value
-##  Xanomeline Low Dose - Placebo                -0.174 0.244 226  -0.711  0.7571
-##  Xanomeline High Dose - Placebo                0.330 0.248 226   1.327  0.3814
-##  Xanomeline High Dose - Xanomeline Low Dose    0.504 0.249 226   2.024  0.1087
-## 
-## P value adjustment: tukey method for comparing a family of 3 estimates</code></pre>
+<pre><code><span class="co">##  contrast                                   estimate    SE  df t.ratio p.value</span>
+<span class="co">##  Xanomeline Low Dose - Placebo                -0.174 0.244 226  -0.711  0.7571</span>
+<span class="co">##  Xanomeline High Dose - Placebo                0.330 0.248 226   1.327  0.3814</span>
+<span class="co">##  Xanomeline High Dose - Xanomeline Low Dose    0.504 0.249 226   2.024  0.1087</span>
+<span class="co">## </span>
+<span class="co">## P value adjustment: tukey method for comparing a family of 3 estimates</span></code></pre>
 <div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">t2</span> <span class="op">&lt;-</span> <span class="va">fit_between</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html">as_tibble</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>
+<code class="sourceCode R"><span class="va">t2</span> <span class="op">&lt;-</span> <span class="va">fit_between</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html" class="external-link">as_tibble</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>
     ls <span class="op">=</span> <span class="fu"><a href="../reference/fmt_ci.html">fmt_ci</a></span><span class="op">(</span>
       <span class="va">estimate</span>,
       <span class="va">estimate</span> <span class="op">-</span> <span class="fl">1.96</span> <span class="op">*</span> <span class="va">SE</span>,
       <span class="va">estimate</span> <span class="op">+</span> <span class="fl">1.96</span> <span class="op">*</span> <span class="va">SE</span>
     <span class="op">)</span>,
     p <span class="op">=</span> <span class="fu"><a href="../reference/fmt_pval.html">fmt_pval</a></span><span class="op">(</span><span class="va">p.value</span><span class="op">)</span>
-  <span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="fu"><a href="https://stringr.tidyverse.org/reference/str_detect.html">str_detect</a></span><span class="op">(</span><span class="va">contrast</span>, <span class="st">"- Placebo"</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">contrast</span>, <span class="va">ls</span>, <span class="va">p</span><span class="op">)</span>
+  <span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="fu"><a href="https://stringr.tidyverse.org/reference/str_detect.html" class="external-link">str_detect</a></span><span class="op">(</span><span class="va">contrast</span>, <span class="st">"- Placebo"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">contrast</span>, <span class="va">ls</span>, <span class="va">p</span><span class="op">)</span>
 
 <span class="va">t2</span></code></pre></div>
-<pre><code>## # A tibble: 2 × 3
-##   contrast                       ls                    p        
-##   &lt;chr&gt;                          &lt;chr&gt;                 &lt;chr&gt;    
-## 1 Xanomeline Low Dose - Placebo  "-0.17 (-0.65, 0.30)" "  0.757"
-## 2 Xanomeline High Dose - Placebo " 0.33 (-0.16, 0.82)" "  0.381"</code></pre>
+<pre><code><span class="co">## <span style="color: #949494;"># A tibble: 2 × 3</span></span>
+<span class="co">##   contrast                       ls                    p        </span>
+<span class="co">##   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                          <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                 <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    </span>
+<span class="co">## <span style="color: #BCBCBC;">1</span> Xanomeline Low Dose - Placebo  <span style="color: #949494;">"</span>-0.17 (-0.65, 0.30)<span style="color: #949494;">"</span> <span style="color: #949494;">"</span>  0.757<span style="color: #949494;">"</span></span>
+<span class="co">## <span style="color: #BCBCBC;">2</span> Xanomeline High Dose - Placebo <span style="color: #949494;">"</span> 0.33 (-0.16, 0.82)<span style="color: #949494;">"</span> <span style="color: #949494;">"</span>  0.381<span style="color: #949494;">"</span></span></code></pre>
 </div>
-<div id="reporting" class="section level2">
-<h2 class="hasAnchor">
-<a href="#reporting" class="anchor"></a>Reporting</h2>
+<div class="section level3">
+<h3 id="reporting">Reporting<a class="anchor" aria-label="anchor" href="#reporting"></a>
+</h3>
 <p>We combine <code>t11</code>, <code>t12</code> and <code>t13</code> to get the first part of the report data</p>
 <div class="sourceCode" id="cb29"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">t1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/cbind.html">cbind</a></span><span class="op">(</span>
-  <span class="va">t11</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">ungroup</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">TRTP</span>, <span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html">ends_with</a></span><span class="op">(</span><span class="st">"0"</span><span class="op">)</span>, <span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html">ends_with</a></span><span class="op">(</span><span class="st">"24"</span><span class="op">)</span><span class="op">)</span>,
-  <span class="va">t12</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">ungroup</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html">ends_with</a></span><span class="op">(</span><span class="st">"chg"</span><span class="op">)</span><span class="op">)</span>,
-  <span class="va">t13</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">ungroup</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">ls</span><span class="op">)</span>
+<code class="sourceCode R"><span class="va">t1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">cbind</a></span><span class="op">(</span>
+  <span class="va">t11</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">ungroup</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">TRTP</span>, <span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html" class="external-link">ends_with</a></span><span class="op">(</span><span class="st">"0"</span><span class="op">)</span>, <span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html" class="external-link">ends_with</a></span><span class="op">(</span><span class="st">"24"</span><span class="op">)</span><span class="op">)</span>,
+  <span class="va">t12</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">ungroup</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html" class="external-link">ends_with</a></span><span class="op">(</span><span class="st">"chg"</span><span class="op">)</span><span class="op">)</span>,
+  <span class="va">t13</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">ungroup</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">ls</span><span class="op">)</span>
 <span class="op">)</span>
 <span class="va">t1</span></code></pre></div>
-<pre><code>##                   TRTP n_0     mean_sd_0 n_24    mean_sd_24 n_chg      mean_chg
-## 1              Placebo  79   5.7 ( 2.23)   57   5.7 ( 1.83)    57  -0.1 ( 2.68)
-## 2  Xanomeline Low Dose  79   5.4 ( 0.95)   26   5.7 ( 1.26)    26   0.2 ( 0.82)
-## 3 Xanomeline High Dose  74   5.4 ( 1.37)   30   6.0 ( 1.92)    30   0.5 ( 1.94)
-##                    ls
-## 1  0.07 (-0.27, 0.41)
-## 2 -0.11 (-0.45, 0.23)
-## 3  0.40 ( 0.05, 0.75)</code></pre>
+<pre><code><span class="co">##                   TRTP n_0     mean_sd_0 n_24    mean_sd_24 n_chg      mean_chg</span>
+<span class="co">## 1              Placebo  79   5.7 ( 2.23)   57   5.7 ( 1.83)    57  -0.1 ( 2.68)</span>
+<span class="co">## 2  Xanomeline Low Dose  79   5.4 ( 0.95)   26   5.7 ( 1.26)    26   0.2 ( 0.82)</span>
+<span class="co">## 3 Xanomeline High Dose  74   5.4 ( 1.37)   30   6.0 ( 1.92)    30   0.5 ( 1.94)</span>
+<span class="co">##                    ls</span>
+<span class="co">## 1  0.07 (-0.27, 0.41)</span>
+<span class="co">## 2 -0.11 (-0.45, 0.23)</span>
+<span class="co">## 3  0.40 ( 0.05, 0.75)</span></code></pre>
 <p>Then we use <code>r2rtf</code> to prepare the table format for <code>t1</code>. We also highlight how to handle special character in this example.</p>
-<p>Special characters <code><a href="https://rdrr.io/r/base/Arithmetic.html">^</a></code> and <code>_</code> are used to define superscript and subscript of text. And <code>{}</code> is to define the part that will be impacted. For example, <code>{^a}</code> provide a superscript <code>a</code> for footnote notation.<br><code>r2rtf</code> also support most LaTeX characters. Examples can be found in <a href="https://merck.github.io/r2rtf/articles/r2rtf.html#special-character"><code>r2rtf</code> Get Started Page</a>. The <code>text_convert</code> argument in <code>r2rtf_xxx</code> functions control whether convert special characters.</p>
+<p>Special characters <code>^</code> and <code>_</code> are used to define superscript and subscript of text. And <code><a href="https://rdrr.io/r/base/Paren.html" class="external-link">{}</a></code> is to define the part that will be impacted. For example, <code>{^a}</code> provide a superscript <code>a</code> for footnote notation. <code>r2rtf</code> also support most LaTeX characters. Examples can be found in <a href="https://merck.github.io/r2rtf/articles/r2rtf.html#special-character" class="external-link"><code>r2rtf</code> Get Started Page</a>. The <code>text_convert</code> argument in <code>r2rtf_xxx</code> functions control whether convert special characters.</p>
 <div class="sourceCode" id="cb31"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">t1_rtf</span> <span class="op">&lt;-</span> <span class="va">t1</span> <span class="op">%&gt;%</span> 
-  <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://merck.github.io/r2rtf/reference/rtf_title.html">rtf_title</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span>
+<code class="sourceCode R"><span class="va">t1_rtf</span> <span class="op">&lt;-</span> <span class="va">t1</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://merck.github.io/r2rtf/reference/rtf_title.html" class="external-link">rtf_title</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span>
     <span class="st">"ANCOVA of Change from Baseline Glucose (mmol/L) at Week 24"</span>,
     <span class="st">"LOCF"</span>,
     <span class="st">"Efficacy Analysis Population"</span>
-  <span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://merck.github.io/r2rtf/reference/rtf_colheader.html">rtf_colheader</a></span><span class="op">(</span><span class="st">"| Baseline | Week 24 | Change from Baseline"</span>,
-    col_rel_width <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2.5</span>, <span class="fl">2</span>, <span class="fl">2</span>, <span class="fl">4</span><span class="op">)</span>
-  <span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://merck.github.io/r2rtf/reference/rtf_colheader.html">rtf_colheader</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span>
+  <span class="op">)</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://merck.github.io/r2rtf/reference/rtf_colheader.html" class="external-link">rtf_colheader</a></span><span class="op">(</span><span class="st">"| Baseline | Week 24 | Change from Baseline"</span>,
+    col_rel_width <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">2.5</span>, <span class="fl">2</span>, <span class="fl">2</span>, <span class="fl">4</span><span class="op">)</span>
+  <span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://merck.github.io/r2rtf/reference/rtf_colheader.html" class="external-link">rtf_colheader</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste</a></span><span class="op">(</span>
     <span class="st">"Treatment |"</span>,
-    <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="st">"N | Mean (SD) | "</span>, <span class="fl">3</span><span class="op">)</span>, collapse <span class="op">=</span> <span class="st">""</span><span class="op">)</span>,
+    <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="st">"N | Mean (SD) | "</span>, <span class="fl">3</span><span class="op">)</span>, collapse <span class="op">=</span> <span class="st">""</span><span class="op">)</span>,
     <span class="st">"LS Mean (95% CI){^a}"</span>
   <span class="op">)</span>,
-  col_rel_width <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2.5</span>, <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.5</span>, <span class="fl">1.5</span><span class="op">)</span>, <span class="fl">3</span><span class="op">)</span>, <span class="fl">2</span><span class="op">)</span>
-  <span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://merck.github.io/r2rtf/reference/rtf_body.html">rtf_body</a></span><span class="op">(</span>text_justification <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"l"</span>, <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="st">"c"</span>, <span class="fl">7</span><span class="op">)</span><span class="op">)</span>, 
-           col_rel_width <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2.5</span>, <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.5</span>, <span class="fl">1.5</span><span class="op">)</span>, <span class="fl">3</span><span class="op">)</span>, <span class="fl">2</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://merck.github.io/r2rtf/reference/rtf_footnote.html">rtf_footnote</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span>
+  col_rel_width <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">2.5</span>, <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.5</span>, <span class="fl">1.5</span><span class="op">)</span>, <span class="fl">3</span><span class="op">)</span>, <span class="fl">2</span><span class="op">)</span>
+  <span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://merck.github.io/r2rtf/reference/rtf_body.html" class="external-link">rtf_body</a></span><span class="op">(</span>
+    text_justification <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"l"</span>, <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="st">"c"</span>, <span class="fl">7</span><span class="op">)</span><span class="op">)</span>,
+    col_rel_width <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">2.5</span>, <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.5</span>, <span class="fl">1.5</span><span class="op">)</span>, <span class="fl">3</span><span class="op">)</span>, <span class="fl">2</span><span class="op">)</span>
+  <span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://merck.github.io/r2rtf/reference/rtf_footnote.html" class="external-link">rtf_footnote</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span>
     <span class="st">"{^a}Based on an ANCOVA model after adjusting baseline value. LOCF approach is used to impute missing values."</span>,
     <span class="st">"ANCOVA = Analysis of Covariance, LOCF = Last Observation Carried Forward"</span>,
     <span class="st">"CI = Confidence Interval, LS = Least Squares, SD = Standard Deviation"</span>
   <span class="op">)</span><span class="op">)</span>
 
-<span class="va">t1_rtf</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://merck.github.io/r2rtf/reference/rtf_encode.html">rtf_encode</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://merck.github.io/r2rtf/reference/write_rtf.html">write_rtf</a></span><span class="op">(</span><span class="st">"tlf/tlf_eff1.rtf"</span><span class="op">)</span></code></pre></div>
+<span class="va">t1_rtf</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://merck.github.io/r2rtf/reference/rtf_encode.html" class="external-link">rtf_encode</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://merck.github.io/r2rtf/reference/write_rtf.html" class="external-link">write_rtf</a></span><span class="op">(</span><span class="st">"tlf/tlf_eff1.rtf"</span><span class="op">)</span></code></pre></div>
 <p>we also use <code>r2rtf</code> to prepare the table format for <code>t2</code></p>
 <div class="sourceCode" id="cb32"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">t2_rtf</span> <span class="op">&lt;-</span> <span class="va">t2</span> <span class="op">%&gt;%</span> 
-  <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://merck.github.io/r2rtf/reference/rtf_colheader.html">rtf_colheader</a></span><span class="op">(</span><span class="st">"Pairwise Comparison | Difference in LS Mean (95% CI){^a} | p-Value"</span>,
-    col_rel_width <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">4.5</span>, <span class="fl">4</span>, <span class="fl">2</span><span class="op">)</span>
-  <span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://merck.github.io/r2rtf/reference/rtf_body.html">rtf_body</a></span><span class="op">(</span>text_justification <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"l"</span>, <span class="st">"c"</span>, <span class="st">"c"</span><span class="op">)</span>, 
-           col_rel_width <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">4.5</span>, <span class="fl">4</span>, <span class="fl">2</span><span class="op">)</span><span class="op">)</span>
+<code class="sourceCode R"><span class="va">t2_rtf</span> <span class="op">&lt;-</span> <span class="va">t2</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://merck.github.io/r2rtf/reference/rtf_colheader.html" class="external-link">rtf_colheader</a></span><span class="op">(</span><span class="st">"Pairwise Comparison | Difference in LS Mean (95% CI){^a} | p-Value"</span>,
+    col_rel_width <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">4.5</span>, <span class="fl">4</span>, <span class="fl">2</span><span class="op">)</span>
+  <span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://merck.github.io/r2rtf/reference/rtf_body.html" class="external-link">rtf_body</a></span><span class="op">(</span>
+    text_justification <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"l"</span>, <span class="st">"c"</span>, <span class="st">"c"</span><span class="op">)</span>,
+    col_rel_width <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">4.5</span>, <span class="fl">4</span>, <span class="fl">2</span><span class="op">)</span>
+  <span class="op">)</span>
 
-<span class="va">t2_rtf</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://merck.github.io/r2rtf/reference/rtf_encode.html">rtf_encode</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://merck.github.io/r2rtf/reference/write_rtf.html">write_rtf</a></span><span class="op">(</span><span class="st">"tlf/tlf_eff2.rtf"</span><span class="op">)</span></code></pre></div>
+<span class="va">t2_rtf</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://merck.github.io/r2rtf/reference/rtf_encode.html" class="external-link">rtf_encode</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://merck.github.io/r2rtf/reference/write_rtf.html" class="external-link">write_rtf</a></span><span class="op">(</span><span class="st">"tlf/tlf_eff2.rtf"</span><span class="op">)</span></code></pre></div>
 <p>Finally we combine the two parts to get the final table using <code>r2rtf</code>. This is achieved by providing a list of <code>t1_rtf</code> and <code>t2_rtf</code> as input for <code>rtf_encode</code>.</p>
 <div class="sourceCode" id="cb33"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="va">t1_rtf</span>, <span class="va">t2_rtf</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://merck.github.io/r2rtf/reference/rtf_encode.html">rtf_encode</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://merck.github.io/r2rtf/reference/write_rtf.html">write_rtf</a></span><span class="op">(</span><span class="st">"tlf/tlf_eff.rtf"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="va">t1_rtf</span>, <span class="va">t2_rtf</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://merck.github.io/r2rtf/reference/rtf_encode.html" class="external-link">rtf_encode</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://merck.github.io/r2rtf/reference/write_rtf.html" class="external-link">write_rtf</a></span><span class="op">(</span><span class="st">"tlf/tlf_eff.rtf"</span><span class="op">)</span></code></pre></div>
 <p>In conclusion, the procedure to generate the above efficacy results table is summarized as follows.</p>
 <ul>
 <li>Step 1: Read the data into R, i.e., <code>adsl</code> and <code>adlb</code>.</li>
@@ -398,11 +399,13 @@ in Section 11.4, Efficacy Results and Tabulations of Individual Patient.</p>
 
 
       <footer><div class="copyright">
-  <p>Developed by Yilong Zhang.</p>
+  <p></p>
+<p>Developed by Yilong Zhang.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+  <p></p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
 </div>
 
       </footer>
@@ -410,6 +413,8 @@ in Section 11.4, Efficacy Results and Tabulations of Individual Patient.</p>
 
   
 
+
+  
 
   </body>
 </html>

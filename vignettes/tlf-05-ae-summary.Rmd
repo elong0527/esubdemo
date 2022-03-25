@@ -2,21 +2,21 @@
 title: AE Summary Table
 ---
 
-# AE Summary {#aesummary}
+# AE Summary
 
-Following [ICH E3 guidance](https://database.ich.org/sites/default/files/E3_Guideline.pdf),
-we need to summarize which patients were included in each efficacy analysis 
-in Section 12.2, Adverse Events (AEs). 
+Following the [ICH E3 guidance](https://database.ich.org/sites/default/files/E3_Guideline.pdf),
+we need to summarize which patients were included in each efficacy analysis
+in Section 12.2, Adverse Events (AEs).
 
 ```{r, message = FALSE}
-devtools::load_all()
+library(esubdemo)
 library(haven) # Read SAS data
 library(dplyr) # Manipulate data
 library(tidyr) # Manipulate data
 library(r2rtf) # Reporting in RTF format
 ```
 
-The data used to summarize AE information is in `adsl` and `adae` datasets. 
+The data used to summarize AE information is in `adsl` and `adae` datasets.
 
 ```{r}
 adsl <- read_sas("data-adam/adsl.sas7bdat")
@@ -56,7 +56,8 @@ tidy_ae <- adae %>%
 
 tidy_ae %>% head(4)
 ```
-We summarize the number and percentage of patients meet each AE criteria. 
+
+We summarize the number and percentage of patients meet each AE criteria.
 
 ```{r}
 ana <- tidy_ae %>%
@@ -72,7 +73,8 @@ ana <- tidy_ae %>%
 
 ana %>% head(4)
 ```
-We prepare reporting ready dataset for each AE criteria. 
+
+We prepare reporting ready dataset for each AE criteria.
 
 ```{r}
 t_ae <- ana %>%
@@ -101,19 +103,24 @@ t_ae <- t_ae %>%
   arrange(name)
 ```
 
-We prepare reporting ready dataset for analysis population. 
+We prepare reporting ready dataset for analysis population.
 
 ```{r}
-t_pop <- pop %>% 
-  mutate(name = "Participants in population", 
-         tot = fmt_num(tot, digits = 0)) %>% 
-  pivot_wider(id_cols = name, 
-              names_from = TRTAN, 
-              names_prefix = "n_", 
-              values_from = tot) 
+t_pop <- pop %>%
+  mutate(
+    name = "Participants in population",
+    tot = fmt_num(tot, digits = 0)
+  ) %>%
+  pivot_wider(
+    id_cols = name,
+    names_from = TRTAN,
+    names_prefix = "n_",
+    values_from = tot
+  )
 
 t_pop
 ```
+
 The final report data is saved in `tbl_ae_summary`
 
 ```{r}
@@ -123,10 +130,10 @@ tbl_ae_summary <- bind_rows(t_pop, t_ae) %>%
 tbl_ae_summary
 ```
 
-We start to define the format of the output. 
+We start to define the format of the output.
 
 ```{r}
-tbl_ae_summary %>% 
+tbl_ae_summary %>%
   rtf_title(
     "Analysis of Adverse Event Summary",
     "(Safety Analysis Population)"

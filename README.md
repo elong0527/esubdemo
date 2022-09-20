@@ -2,6 +2,7 @@
 
 <!-- badges: start -->
 [![R build status](https://github.com/elong0527/esubdemo/workflows/R-CMD-check/badge.svg)](https://github.com/elong0527/esubdemo/actions)
+[![R-CMD-check](https://github.com/elong0527/esubdemo/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/elong0527/esubdemo/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 ## Overview

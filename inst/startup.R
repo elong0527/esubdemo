@@ -1,11 +1,11 @@
 # Project level setup
 
 # Set up project R version
-R_version <- "4.1.0"
+R_version <- "4.2.1"
 # Set up snapshot date
-snapshot <- "2021-08-06"
+snapshot <- "2022-09-01"
 # Set up repository based on snapshot
-repos <- paste0("https://mran.microsoft.com/snapshot/", snapshot)
+repos <- "https://packagemanager.rstudio.com/all/2022-09-01+Y3JhbiwyOjQ1MjYyMTU7OUI4REVGREM"
 
 # Define repo URL for project specific package installation
 options(repos = repos)
